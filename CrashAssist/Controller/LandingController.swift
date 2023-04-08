@@ -34,8 +34,8 @@ class LandingController: BaseViewController {
         authUI?.delegate = self
         let providers: [FUIAuthProvider] = [
           FUIEmailAuth(),
-//          FUIGoogleAuth(authUI: FUIAuth.defaultAuthUI()!),
-//          FUIFacebookAuth(authUI: FUIAuth.defaultAuthUI()!),
+          FUIGoogleAuth(authUI: FUIAuth.defaultAuthUI()!),
+          FUIFacebookAuth(authUI: FUIAuth.defaultAuthUI()!),
         ]
         authUI?.providers = providers
         
@@ -63,7 +63,6 @@ extension BaseViewController: FUIAuthDelegate {
             "email": currUser.email!,
             "isVerified": currUser.isEmailVerified,
         ])
-        
         // Transition to home
         performSegue(withIdentifier: "goHome", sender: self)
     }

@@ -159,8 +159,9 @@
                             <constraint firstItem="gSr-9t-ZH1" firstAttribute="centerX" secondItem="Oum-yA-hKg" secondAttribute="centerX" id="jqL-xN-I0S"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lZv-Jg-51O"/>
                     <connections>
-                        <segue destination="Rv1-zC-NXy" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" id="cRE-vv-AIZ"/>
+                        <segue destination="Rv1-zC-NXy" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="cRE-vv-AIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGd-4Z-ePr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,23 +192,41 @@
         <!--Settings-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BaseViewController" customModule="CrashAssist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SettingsController" customModule="CrashAssist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6f-8N-Tz0">
-                                <rect key="frame" x="156" y="323" width="63" height="21"/>
+                                <rect key="frame" x="156" y="55" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdy-xC-SI4">
+                                <rect key="frame" x="10" y="572" width="355" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6G6-XD-0MN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kdy-xC-SI4" secondAttribute="bottom" constant="60" id="4bK-j5-W0y"/>
+                            <constraint firstItem="kdy-xC-SI4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nCw-KM-kgc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kdy-xC-SI4" secondAttribute="trailing" constant="10" id="udR-fi-QBj"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.circle.fill" catalog="system" selectedImage="gear.circle.fill" id="nrK-8q-ZL0"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="1T8-vM-zMq" kind="presentation" identifier="goToLanding" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="JF9-5I-J7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

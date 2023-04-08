@@ -51,6 +51,7 @@
 		580F109729E0C2A9008C401B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		580F109929E0C2B6008C401B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		580F109B29E0C4CB008C401B /* NewReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportController.swift; sourceTree = "<group>"; };
+		580F109D29E0DACF008C401B /* CrashAssist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrashAssist.entitlements; sourceTree = "<group>"; };
 		5838DEC829DFB31600240011 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5838DECA29DFB4B300240011 /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
 		5843A5A129D5146A008D797D /* CrashAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +129,7 @@
 		5843A5A329D5146A008D797D /* CrashAssist */ = {
 			isa = PBXGroup;
 			children = (
+				580F109D29E0DACF008C401B /* CrashAssist.entitlements */,
 				5838DEC829DFB31600240011 /* GoogleService-Info.plist */,
 				5843A5D529D5147C008D797D /* Model */,
 				5843A5D629D51481008D797D /* View */,
@@ -640,6 +642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CrashAssist/CrashAssist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RF37X3S82D;
@@ -669,6 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CrashAssist/CrashAssist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RF37X3S82D;

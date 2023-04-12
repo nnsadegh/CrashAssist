@@ -53,18 +53,43 @@ extension BaseViewController: FUIAuthDelegate {
         guard error == nil else {
             return
         }
-        let currUser = Auth.auth().currentUser!
-        let id = currUser.uid
-        let userCollectionRef = Firestore.firestore().collection("users")
-        let documentId = userCollectionRef.document().documentID
-        userCollectionRef.document(id).setData([
-            "id": id,
-            "name": currUser.displayName!,
-            "email": currUser.email!,
-            "isVerified": currUser.isEmailVerified,
-        ])
-        // Transition to home
-        performSegue(withIdentifier: "goHome", sender: self)
+        
+        FSUtil.shared.userExists() { (exists) in
+            if exists {
+                // Document exists
+                self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+            } else {
+                // Document does not exist
+                // Transition to home
+                self.performSegue(withIdentifier: "goMoreFromLogin", sender: self)
+            }
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let currUser = Auth.auth().currentUser!
+        let id = FSUtil.shared.getUID()!
+        
+        if segue.identifier == "goMoreFromLogin" {
+            _ = segue.destination as! MoreInfoController
+            let user = User(userID: id, name: currUser.displayName!, email: currUser.email!)
+            FSUtil.shared.updateUser(user: user) { error in
+                if let error = error {
+                    print("Error updating user: \(error)")
+                } else {
+                    print("User updated successfully")
+                }
+            }
+        }
+        if segue.identifier == "goHomeFromLogin" {
+            FSUtil.shared.getUser() { result in
+                switch result {
+                case .success(_):
+                    print("Successfully got user")
+                case .failure(let error):
+                    print("Failed to get user: \(error)")
+                }
+            }
+        }
+    }
 }

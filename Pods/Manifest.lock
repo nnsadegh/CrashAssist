@@ -658,11 +658,17 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseFirestoreSwift (10.7.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseFirestore (~> 10.0)
+    - FirebaseSharedSwift (~> 10.0)
   - FirebaseGoogleAuthUI (12.3.0):
     - FirebaseAuth
     - FirebaseAuthUI
     - FirebaseCore
     - GoogleSignIn (~> 6.0)
+  - FirebaseSharedSwift (10.7.0)
   - FirebaseStorage (10.7.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
@@ -771,6 +777,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FirebaseAuth
   - FirebaseFirestore
+  - FirebaseFirestoreSwift
   - FirebaseStorage
   - FirebaseUI/Auth
   - FirebaseUI/Email
@@ -797,7 +804,9 @@ SPEC REPOS:
     - FirebaseEmailAuthUI
     - FirebaseFacebookAuthUI
     - FirebaseFirestore
+    - FirebaseFirestoreSwift
     - FirebaseGoogleAuthUI
+    - FirebaseSharedSwift
     - FirebaseStorage
     - FirebaseUI
     - GoogleSignIn
@@ -829,7 +838,9 @@ SPEC CHECKSUMS:
   FirebaseEmailAuthUI: 93c49123133a5ff934e05d15c51462ed0f12ee0a
   FirebaseFacebookAuthUI: 2ed58e670fbf1a8203c81ffc3a73a8739f7ce25c
   FirebaseFirestore: 3963a6edd1c84b4748dab3e2c62624a29d03eca1
+  FirebaseFirestoreSwift: fc1fdfd56acd12a0fbcc5f00cca2d42784ceb142
   FirebaseGoogleAuthUI: 07addbda8ded46089a08681bf101c424eca79337
+  FirebaseSharedSwift: 993e46657e34f14fe497c4a43c1f9608dabfb2e5
   FirebaseStorage: 4841efa304543e1f9e4ca116c559c7a1ea2a9d0f
   FirebaseUI: e9a2dd42f5b593cd8b6e64c11d30ded38f30e48c
   GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
@@ -843,6 +854,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: 32ea76d3e141b96ad7e42719de6809b58e8c1ff4
+PODFILE CHECKSUM: 8f1c194442e5fa1d16b8590ccf2b6cde2b5a4051
 
 COCOAPODS: 1.12.0

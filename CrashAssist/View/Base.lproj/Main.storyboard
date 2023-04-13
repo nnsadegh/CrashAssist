@@ -121,10 +121,14 @@
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_default" translatesAutoresizingMaskIntoConstraints="NO" id="Qth-Wg-Jcc">
                                 <rect key="frame" x="112.5" y="57" width="150" height="150"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qth-Wg-Jcc" secondAttribute="height" multiplier="1:1" id="0EW-GF-Raf"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9se-dX-Xkn">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iYV-sK-4lG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -135,12 +139,14 @@
                             <constraint firstItem="rhe-wh-51q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iYV-sK-4lG" secondAttribute="leading" constant="3" id="7Gs-ON-oQf"/>
                             <constraint firstItem="lLw-aR-F4A" firstAttribute="leading" secondItem="iYV-sK-4lG" secondAttribute="leading" constant="5" id="9PA-NT-E5V"/>
                             <constraint firstItem="rhe-wh-51q" firstAttribute="width" secondItem="BD0-rb-rGE" secondAttribute="width" multiplier="0.95" id="AUV-az-qkC"/>
+                            <constraint firstItem="9se-dX-Xkn" firstAttribute="centerY" secondItem="BD0-rb-rGE" secondAttribute="centerY" id="Bea-D8-z56"/>
                             <constraint firstItem="lLw-aR-F4A" firstAttribute="centerX" secondItem="BD0-rb-rGE" secondAttribute="centerX" id="ES1-Wg-l74"/>
                             <constraint firstItem="iYV-sK-4lG" firstAttribute="trailing" secondItem="lLw-aR-F4A" secondAttribute="trailing" constant="5" id="M9m-RL-dHu"/>
                             <constraint firstItem="Qth-Wg-Jcc" firstAttribute="width" secondItem="BD0-rb-rGE" secondAttribute="width" multiplier="0.4" id="OnL-Bb-J9b"/>
                             <constraint firstItem="iYV-sK-4lG" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lLw-aR-F4A" secondAttribute="bottom" constant="250" id="RED-vv-0fk"/>
                             <constraint firstItem="Qth-Wg-Jcc" firstAttribute="top" secondItem="rhe-wh-51q" secondAttribute="bottom" constant="3" id="RSl-o2-sW0"/>
                             <constraint firstItem="rhe-wh-51q" firstAttribute="centerX" secondItem="BD0-rb-rGE" secondAttribute="centerX" id="Txu-8A-ogM"/>
+                            <constraint firstItem="9se-dX-Xkn" firstAttribute="centerX" secondItem="BD0-rb-rGE" secondAttribute="centerX" id="VVQ-8e-cSP"/>
                             <constraint firstItem="iYV-sK-4lG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rhe-wh-51q" secondAttribute="trailing" constant="3" id="cN7-YT-evf"/>
                             <constraint firstItem="lLw-aR-F4A" firstAttribute="top" secondItem="Qth-Wg-Jcc" secondAttribute="bottom" constant="8" symbolic="YES" id="fxJ-b5-CqX"/>
                             <constraint firstItem="Qth-Wg-Jcc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iYV-sK-4lG" secondAttribute="leading" constant="5" id="hnY-YU-DuG"/>
@@ -150,9 +156,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="kkL-Kc-VOB"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="9se-dX-Xkn" id="3Gw-6L-7Vu"/>
                         <outlet property="birthdateText" destination="IUj-Ya-psH" id="kRc-Cj-0Hq"/>
                         <outlet property="emailText" destination="GhQ-Sj-M4o" id="Czp-H0-2ht"/>
                         <outlet property="nameText" destination="Xar-oG-LGF" id="xkh-em-XlR"/>
+                        <outlet property="profileImageView" destination="Qth-Wg-Jcc" id="O5b-jZ-V02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiW-Wi-s0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -428,26 +436,12 @@
             </objects>
             <point key="canvasLocation" x="-689" y="671"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="v4j-F4-Et7">
-            <objects>
-                <viewController id="NzV-ga-hhW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aBm-oI-mGI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="atw-fi-3NG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-126" y="-167"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OtU-A5-H2r"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="account_default" width="170" height="170"/>
+        <image name="account_default" width="170.5" height="170.5"/>
         <image name="gear.circle.fill" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>

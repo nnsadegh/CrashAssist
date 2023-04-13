@@ -19,6 +19,8 @@ pod 'FirebaseUI/Facebook'
 pod 'GoogleSignIn'
 pod 'FBSDKLoginKit' 
 
+pod 'SDWebImage'
+
   target 'CrashAssistTests' do
     inherit! :search_paths
     # Pods for testing

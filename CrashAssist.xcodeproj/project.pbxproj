@@ -17,6 +17,7 @@
 		580F10A329E23F6B008C401B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A229E23F6B008C401B /* User.swift */; };
 		580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A529E249B8008C401B /* MoreInfoController.swift */; };
 		5819057A29E2745500C84109 /* FSUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5819057929E2745500C84109 /* FSUtil.swift */; };
+		5819057E29E79A3900C84109 /* RoundedImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */; };
 		5838DEC929DFB31600240011 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5838DEC829DFB31600240011 /* GoogleService-Info.plist */; };
 		5838DECB29DFB4B300240011 /* LandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838DECA29DFB4B300240011 /* LandingController.swift */; };
 		5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5A429D5146A008D797D /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		580F10A229E23F6B008C401B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		580F10A529E249B8008C401B /* MoreInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoController.swift; sourceTree = "<group>"; };
 		5819057929E2745500C84109 /* FSUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUtil.swift; sourceTree = "<group>"; };
+		5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImagePickerController.swift; sourceTree = "<group>"; };
 		5838DEC829DFB31600240011 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5838DECA29DFB4B300240011 /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
 		5843A5A129D5146A008D797D /* CrashAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 				580F109929E0C2B6008C401B /* ProfileController.swift */,
 				580F109B29E0C4CB008C401B /* NewReportController.swift */,
 				580F10A529E249B8008C401B /* MoreInfoController.swift */,
+				5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				580F109829E0C2A9008C401B /* SettingsController.swift in Sources */,
 				580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */,
 				580F109F29E0E8A8008C401B /* Log.swift in Sources */,
+				5819057E29E79A3900C84109 /* RoundedImagePickerController.swift in Sources */,
 				5843A5A929D5146A008D797D /* BaseViewController.swift in Sources */,
 				580F109629E0C296008C401B /* HomePageController.swift in Sources */,
 				5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */,

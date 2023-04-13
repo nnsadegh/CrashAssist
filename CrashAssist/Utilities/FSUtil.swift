@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class FSUtil {
     static let shared = FSUtil()
@@ -52,6 +53,49 @@ class FSUtil {
             }
         }
     }
+    
+    func uploadProfileImage(image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        // Upload the image to Firebase storage
+        let storageRef = Storage.storage().reference().child("profileImages").child("\(UUID().uuidString).jpg")
+        if let imageData = image.jpegData(compressionQuality: 0.5) {
+            storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                
+                if let error = error {
+                    print("Error uploading image: \(error.localizedDescription)")
+                    completion(.failure(error))
+                    return
+                }
+                
+                // Get the download URL for the uploaded image
+                storageRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        print("Error getting download URL: \(error.localizedDescription)")
+                        completion(.failure(error))
+                        return
+                    }
+                    
+                    if let downloadURL = url?.absoluteString {
+                        // Add the image URL to the user's data in Firestore
+                        Firestore.firestore().collection("users").document(self.id!).updateData(["profileImageURL": downloadURL]) { error in
+                            if let error = error {
+                                print("Error updating user data: \(error.localizedDescription)")
+                                completion(.failure(error))
+                                return
+                            }
+                            
+                            completion(.success(downloadURL))
+                        }
+                    } else {
+                        let error = NSError(domain: "FirebaseStorage", code: 404, userInfo: [NSLocalizedDescriptionKey: "Download URL not found"])
+                        completion(.failure(error))
+                    }
+                })
+            }
+        }
+    }
+
+
     
     func updateUser(user: User, completion: @escaping (Error?) -> Void) {
         do {

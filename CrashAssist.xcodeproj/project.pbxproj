@@ -11,7 +11,7 @@
 		580F109629E0C296008C401B /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109529E0C296008C401B /* HomePageController.swift */; };
 		580F109829E0C2A9008C401B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109729E0C2A9008C401B /* SettingsController.swift */; };
 		580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109929E0C2B6008C401B /* ProfileController.swift */; };
-		580F109C29E0C4CB008C401B /* NewReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109B29E0C4CB008C401B /* NewReportController.swift */; };
+		580F109C29E0C4CB008C401B /* NewLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109B29E0C4CB008C401B /* NewLogController.swift */; };
 		580F109F29E0E8A8008C401B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109E29E0E8A8008C401B /* Log.swift */; };
 		580F10A129E0E8B4008C401B /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A029E0E8B4008C401B /* LogModel.swift */; };
 		580F10A329E23F6B008C401B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A229E23F6B008C401B /* User.swift */; };
@@ -56,7 +56,7 @@
 		580F109529E0C296008C401B /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		580F109729E0C2A9008C401B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		580F109929E0C2B6008C401B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		580F109B29E0C4CB008C401B /* NewReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportController.swift; sourceTree = "<group>"; };
+		580F109B29E0C4CB008C401B /* NewLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogController.swift; sourceTree = "<group>"; };
 		580F109D29E0DACF008C401B /* CrashAssist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrashAssist.entitlements; sourceTree = "<group>"; };
 		580F109E29E0E8A8008C401B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		580F10A029E0E8B4008C401B /* LogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				580F109529E0C296008C401B /* HomePageController.swift */,
 				580F109729E0C2A9008C401B /* SettingsController.swift */,
 				580F109929E0C2B6008C401B /* ProfileController.swift */,
-				580F109B29E0C4CB008C401B /* NewReportController.swift */,
+				580F109B29E0C4CB008C401B /* NewLogController.swift */,
 				580F10A529E249B8008C401B /* MoreInfoController.swift */,
 				5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */,
 			);
@@ -495,7 +495,7 @@
 				580F109629E0C296008C401B /* HomePageController.swift in Sources */,
 				5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */,
 				5838DECB29DFB4B300240011 /* LandingController.swift in Sources */,
-				580F109C29E0C4CB008C401B /* NewReportController.swift in Sources */,
+				580F109C29E0C4CB008C401B /* NewLogController.swift in Sources */,
 				580F10A129E0E8B4008C401B /* LogModel.swift in Sources */,
 				5843A5A729D5146A008D797D /* SceneDelegate.swift in Sources */,
 				580F10A329E23F6B008C401B /* User.swift in Sources */,

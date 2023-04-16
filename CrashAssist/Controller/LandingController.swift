@@ -20,6 +20,13 @@ class LandingController: BaseViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+        }
+    }
+    
     
     @IBAction func loginButtonDidTapped(_ sender: UIButton) {
         // Create default Auth UI

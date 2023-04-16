@@ -26,6 +26,19 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
         
+        // Add tap gesture recognizer to the profile image view
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
+
+        // Set up image picker
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         FSUtil.shared.getUser() { [self] result in
             switch result {
                 case .success(let user):
@@ -49,15 +62,6 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
                     print("Error fetching user: \(error)")
             }
         }
-        
-        // Add tap gesture recognizer to the profile image view
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        profileImageView.addGestureRecognizer(tapGesture)
-        profileImageView.isUserInteractionEnabled = true
-
-        // Set up image picker
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
     }
     
     @objc func imageTapped() {

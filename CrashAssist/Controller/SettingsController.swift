@@ -17,13 +17,8 @@ class SettingsController: BaseViewController {
     }
     
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-            // User is signed out.
-            performSegue(withIdentifier: "goToLanding", sender: self)
-        } catch let error as NSError {
-            print("Error signing out: %@", error)
-        }
+        UserManager.shared.signOut()
+        self.performSegue(withIdentifier: "goLandingFromSettings", sender: self)
     }
     
 }

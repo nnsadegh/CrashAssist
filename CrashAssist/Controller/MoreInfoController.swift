@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MoreInfoController : BaseViewController {
     
@@ -19,25 +20,20 @@ class MoreInfoController : BaseViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        FSUtil.shared.getUser { [self] result in
-            switch result {
-                case .success(let user):
-                    // Do something with the user object
-                    var updated = user
-                    updated.birthdate = birthdatePicker.date
-                    if let vin = vinNumberField.text, !vin.isEmpty {
-                        updated.vin = vin
-                    }
-                    FSUtil.shared.updateUser(user: user) { error in
-                        if let error = error {
-                            print(error)
-                            return
-                        }
-                    }
-                    performSegue(withIdentifier: "goHome", sender: self)
-                case .failure(let error):
-                    print("Error fetching user: \(error)")
-                }
+        let currUser = Auth.auth().currentUser!
+        let data: [UserManager.UserField: Any] = [
+            UserManager.UserField.birthdate: birthdatePicker.date,
+            UserManager.UserField.vin: vinNumberField.text!
+        ]
+        UserManager.shared.updateData(data) { error in
+            if let error = error {
+                // Handle the error
+                print("Error updating user data: \(error)")
+            } else {
+                // Data was updated successfully
+                print("User data updated")
+                self.performSegue(withIdentifier: "goHome", sender: self)
+            }
         }
     }
     

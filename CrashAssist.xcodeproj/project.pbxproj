@@ -29,6 +29,7 @@
 		5843A5BC29D5146B008D797D /* CrashAssistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5BB29D5146B008D797D /* CrashAssistTests.swift */; };
 		5843A5C629D5146B008D797D /* CrashAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5C529D5146B008D797D /* CrashAssistUITests.swift */; };
 		5843A5C829D5146B008D797D /* CrashAssistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5C729D5146B008D797D /* CrashAssistUITestsLaunchTests.swift */; };
+		588FA31A29EF6FA40072A26D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588FA31929EF6FA40072A26D /* UserManager.swift */; };
 		6B97498D2F373E8DCF1399D7 /* Pods_CrashAssist_CrashAssistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4A5D508C811C6CA2565B6A /* Pods_CrashAssist_CrashAssistUITests.framework */; };
 		8F14C6006F56B128D450085E /* Pods_CrashAssistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BA9CD8B6D5C79FC895EF8B /* Pods_CrashAssistTests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		5843A5C129D5146B008D797D /* CrashAssistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrashAssistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5843A5C529D5146B008D797D /* CrashAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashAssistUITests.swift; sourceTree = "<group>"; };
 		5843A5C729D5146B008D797D /* CrashAssistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashAssistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		588FA31929EF6FA40072A26D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		831C6E041A97909AB95B660A /* Pods-CrashAssist-CrashAssistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssist-CrashAssistUITests.release.xcconfig"; path = "Target Support Files/Pods-CrashAssist-CrashAssistUITests/Pods-CrashAssist-CrashAssistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F4A5D508C811C6CA2565B6A /* Pods_CrashAssist_CrashAssistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashAssist_CrashAssistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashAssist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,11 +184,11 @@
 			children = (
 				5843A5A829D5146A008D797D /* BaseViewController.swift */,
 				5838DECA29DFB4B300240011 /* LandingController.swift */,
+				580F10A529E249B8008C401B /* MoreInfoController.swift */,
 				580F109529E0C296008C401B /* HomePageController.swift */,
 				580F109729E0C2A9008C401B /* SettingsController.swift */,
 				580F109929E0C2B6008C401B /* ProfileController.swift */,
 				580F109B29E0C4CB008C401B /* NewLogController.swift */,
-				580F10A529E249B8008C401B /* MoreInfoController.swift */,
 				5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */,
 			);
 			path = Controller;
@@ -198,6 +200,7 @@
 				580F109E29E0E8A8008C401B /* Log.swift */,
 				580F10A029E0E8B4008C401B /* LogModel.swift */,
 				580F10A229E23F6B008C401B /* User.swift */,
+				588FA31929EF6FA40072A26D /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */,
 				5819057A29E2745500C84109 /* FSUtil.swift in Sources */,
 				580F109829E0C2A9008C401B /* SettingsController.swift in Sources */,
+				588FA31A29EF6FA40072A26D /* UserManager.swift in Sources */,
 				580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */,
 				580F109F29E0E8A8008C401B /* Log.swift in Sources */,
 				5819057E29E79A3900C84109 /* RoundedImagePickerController.swift in Sources */,

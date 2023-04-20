@@ -100,7 +100,7 @@ class FSUtil {
     func updateUser(user: User, completion: @escaping (Error?) -> Void) {
         do {
             let userDocumentData = try Firestore.Encoder().encode(user)
-            userCollectionRef.document(user.userID).setData(userDocumentData) { error in
+            userCollectionRef.document(user.uid).setData(userDocumentData) { error in
                 if let error = error {
                     print("Error updating user: \(error)")
                     completion(error)

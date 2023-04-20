@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class NewLogController: BaseViewController, UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate {
+class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,10 +27,61 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextFieldDel
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         saveButton.isEnabled = false
+        
+        driverName.delegate = self
+        driverPhoneNumber.delegate = self
+        driverAddress.delegate = self
+        driverInsurance.delegate = self
+        driverPolicyNumber.delegate = self
+        driverVehicleMake.delegate = self
+        driverVehicleModel.delegate = self
+        driverLicensePlate.delegate = self
     }
     
     @IBAction func saveDidTapped(_ sender: UIButton) {
         // TODO: Save data to Firestore
+        let newLogRef = Firestore.firestore().collection("logs").document()
+        let logDictionary: [Log.FieldKeys: Any] = [
+            .userID: UserManager.shared.getCurrentUser()?.uid ?? "",
+            .logID: newLogRef.documentID,
+            .otherDriverName: driverName.text ?? "",
+            .otherDriverPhone: driverPhoneNumber.text ?? "",
+            .otherDriverAddress: driverAddress.text ?? "",
+            .otherDriverInsuranceCompany: driverInsurance.text ?? "",
+            .otherDriverPolicyNumber: driverPolicyNumber.text ?? "",
+            .otherVehicleMake: driverVehicleMake.text ?? "",
+            .otherVehicleModel: driverVehicleModel.text ?? "",
+            .otherVehicleLicensePlate: driverLicensePlate.text ?? "",
+//            .location: "",
+//            .time: Date(),
+//            .witnesses: [],
+//            .yourVehicleMedia: [],
+//            .otherVehicleMedia: [],
+//            .policeReport: "",
+//            .officerName: "",
+//            .officerBadgeNumber: "",
+//            .description: ""
+        ]
+        
+        // Try to create a Log object from the dictionary
+        guard let log = Log(dictionary: logDictionary) else {
+            print("Error creating Log object from dictionary")
+            return
+        }
+        
+        do {
+            let data = try Firestore.Encoder().encode(log)
+            
+            Firestore.firestore().collection("logs").document(log.logID).setData(data) { error in
+                if let error = error {
+                    print("Error saving log: \(error.localizedDescription)")
+                } else {
+                    print("Log saved successfully")
+                }
+            }
+        } catch {
+            print("Error encoding log: \(error.localizedDescription)")
+        }
         self.dismiss(animated: true)
     }
     
@@ -38,7 +90,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextFieldDel
         self.dismiss(animated: true)
     }
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
+    internal func textFieldDidChangeSelection(_ textField: UITextField) {
         enableOrDisableButton()
     }
 

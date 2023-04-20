@@ -1,10 +1,3 @@
-//
-//  ProfileController.swift
-//  CrashAssist
-//
-//  Created by Netanel Sadeghi on 4/7/23.
-//
-
 import UIKit
 import FirebaseStorage
 import SDWebImage
@@ -22,82 +15,78 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        profileImageView.clipsToBounds = true
-        
-        // Add tap gesture recognizer to the profile image view
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imagePicker.delegate = self
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.layer.masksToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileController.handleSelectProfileImageView))
         profileImageView.addGestureRecognizer(tapGesture)
         profileImageView.isUserInteractionEnabled = true
-
-        // Set up image picker
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        let user = UserManager.shared.getCurrentUser()!
+        // Do something with the user object
+        nameText.text = user.name
+        emailText.text = user.email!
         
-        FSUtil.shared.getUser() { [self] result in
-            switch result {
-                case .success(let user):
-                // Do something with the user object
-                    nameText.text = user.name
-                    emailText.text = user.email
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    if let bd = user.birthdate {
-                        birthdateText.text = dateFormatter.string(from: bd)
-                    } else {
-                        birthdateText.text = "Enter a birthday!"
-                    }
-
-                    // Download and display the profile image using SDWebImage
-                    if let url = user.profileImageURL {
-                        self.profileImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "account_default"))
-                        }
-                case .failure(let error):
-                    print("Error fetching user: \(error)")
-            }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let bd = user.birthdate {
+            birthdateText.text = dateFormatter.string(from: bd)
+        } else {
+            birthdateText.text = "Enter a birthday!"
+        }
+        
+        // Download and display the profile image using SDWebImage
+        if let url = user.profileImageURL {
+            self.profileImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "account_default"))
         }
     }
     
-    @objc func imageTapped() {
-        // Show the image picker to select a photo
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary;
-        present(imagePicker, animated: true, completion: nil)
+    @objc func handleSelectProfileImageView() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // Get the selected image
-        guard let image = info[.editedImage] as? UIImage else {
-            dismiss(animated: true, completion: nil)
-            return
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageView.image = image
+            self.uploadProfileImage(image: image)
         }
-        activityIndicator.startAnimating()
-        FSUtil.shared.uploadProfileImage(image: image) { result in
-            switch result {
-            case .success(let downloadURL):
-                print("Image uploaded successfully. Download URL: \(downloadURL)")
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadProfileImage(image: UIImage) {
+        // Upload the image to Firebase storage
+        let storageRef = Storage.storage().reference().child("profileImages").child("\(UUID().uuidString).jpg")
+        if let imageData = image.jpegData(compressionQuality: 0.5) {
+            self.activityIndicator.startAnimating()
+            storageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 self.activityIndicator.stopAnimating()
-                // Update the UI with the new image
-            case .failure(let error):
-                print("Error uploading image: \(error.localizedDescription)")
-                // Show an error message to the user
+                if let error = error {
+                    print("Error uploading image: \(error.localizedDescription)")
+                    return
+                }
+                // Update the image view with the newly uploaded image
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        if let error = error {
+                            print("Error getting download URL: \(error.localizedDescription)")
+                        }
+                        return
+                    }
+                    self.spinner.startAnimating()
+                    UserManager.shared.updateField(.profileImageURL, value: downloadURL) { error in
+                        if let error {
+                            print("Failed to update field due to: \(error)")
+                        }
+                        self.spinner.stopAnimating()
+                    }
+                    self.profileImageView.sd_setImage(with: downloadURL, placeholderImage: UIImage(named: "account_default"))
+                }
             }
         }
-
-        // Set the selected image as the profile image view's image
-        profileImageView.image = image
-
-        dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
     }
 }

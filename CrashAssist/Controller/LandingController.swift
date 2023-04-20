@@ -13,16 +13,15 @@ import FirebaseFacebookAuthUI
 import FirebaseGoogleAuthUI
 
 class LandingController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
+        if UserManager.shared.userLoggedIn() {
             self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
         }
     }
@@ -61,40 +60,25 @@ extension BaseViewController: FUIAuthDelegate {
             return
         }
         
-        FSUtil.shared.userExists() { (exists) in
-            if exists {
-                // Document exists
-                self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
-            } else {
-                // Document does not exist
-                // Transition to home
-                self.performSegue(withIdentifier: "goMoreFromLogin", sender: self)
-            }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let currUser = Auth.auth().currentUser!
-        let id = FSUtil.shared.getUID()!
-        
-        if segue.identifier == "goMoreFromLogin" {
-            _ = segue.destination as! MoreInfoController
-            let user = User(userID: id, name: currUser.displayName!, email: currUser.email!)
-            FSUtil.shared.updateUser(user: user) { error in
+        if (UserManager.shared.getCurrentUser()?.vin != nil) {
+            // User Document exists
+            // Don't ask for more information
+            self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+        } else {
+            // User Document does not exist
+            // Transition to more page
+            let currUser = Auth.auth().currentUser!
+            let data: [UserManager.UserField: Any] = [
+                UserManager.UserField.name: currUser.displayName!,
+                UserManager.UserField.email: currUser.email!
+            ]
+            let user: User = User(userID: currUser.uid, data: data)
+            UserManager.shared.updateUser(user: user) { error in
                 if let error = error {
-                    print("Error updating user: \(error)")
+                    // Handle the error
+                    print("Error updating user data: \(error)")
                 } else {
-                    print("User updated successfully")
-                }
-            }
-        }
-        if segue.identifier == "goHomeFromLogin" {
-            FSUtil.shared.getUser() { result in
-                switch result {
-                case .success(_):
-                    print("Successfully got user")
-                case .failure(let error):
-                    print("Failed to get user: \(error)")
+                    self.performSegue(withIdentifier: "goMoreFromLogin", sender: self)
                 }
             }
         }

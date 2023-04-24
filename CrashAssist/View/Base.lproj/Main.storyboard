@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -161,7 +162,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3Q8-Jh-oN8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logCell" id="3Q8-Jh-oN8">
                                         <rect key="frame" x="0.0" y="50" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Q8-Jh-oN8" id="dq8-sM-zqu">
@@ -202,7 +203,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem title="New Log" id="ekX-Lu-ac3">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="ke6-lq-Amu">
+                                        <barButtonItem key="leftBarButtonItem" id="ke6-lq-Amu">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="cancel" id="mTx-UB-1t8">
                                                 <rect key="frame" x="16" y="10.5" width="83" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,7 +214,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Z1W-E6-4sd">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="Z1W-E6-4sd">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Pok-8r-D1m">
                                                 <rect key="frame" x="276" y="10.5" width="83" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -231,10 +232,10 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="591"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ghQ-Rx-LAT">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="1904"/>
+                                        <rect key="frame" x="5" y="0.0" width="415" height="6576.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M7u-33-Vjs" userLabel="Other Driver Fields">
-                                                <rect key="frame" x="0.0" y="0.0" width="415" height="1472"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="415" height="6004"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Driver's Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEJ-bf-Of7">
                                                         <rect key="frame" x="0.0" y="0.0" width="415" height="28"/>
@@ -243,7 +244,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="Bb1-Zc-DdM" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="154" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="720.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ff7-d5-RSw">
@@ -269,7 +270,7 @@
                                                         <viewLayoutGuide key="safeArea" id="gmy-gW-cjD"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="aNR-vU-82C" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="334.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="1467.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eJS-1u-EHg">
@@ -295,7 +296,7 @@
                                                         <viewLayoutGuide key="safeArea" id="TRa-X2-vVI"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="N3x-Ei-x8A" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="515.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="2215" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BX5-dl-3Zy">
@@ -321,7 +322,7 @@
                                                         <viewLayoutGuide key="safeArea" id="2ic-K3-4E4"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="McH-ms-0kU" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="696.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="2962.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-j8-F93">
@@ -347,7 +348,7 @@
                                                         <viewLayoutGuide key="safeArea" id="HKa-CD-g08"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="a4T-MG-PIp" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="877" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="3709.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-Y6-aXx">
@@ -373,7 +374,7 @@
                                                         <viewLayoutGuide key="safeArea" id="D2p-8y-Sjr"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="F37-U1-vBz" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="1058" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="4457" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQs-X6-3dq">
@@ -399,7 +400,7 @@
                                                         <viewLayoutGuide key="safeArea" id="8pn-9b-68r"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="NKL-0u-bD0" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="1238.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="5204" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o2Z-SL-Y1T">
@@ -425,7 +426,7 @@
                                                         <viewLayoutGuide key="safeArea" id="YDn-dC-9ZO"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="tGc-Ch-dhk" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="1419.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="5951.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ypS-oZ-1SG">
@@ -453,7 +454,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" id="4oI-p9-G7k" userLabel="Your Data Fields">
-                                                <rect key="frame" x="0.0" y="1489" width="415" height="367"/>
+                                                <rect key="frame" x="0.0" y="6021" width="415" height="407.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miscellaneous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYG-SU-Upm">
@@ -463,11 +464,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="xqT-cS-Ik4" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="37.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="37.5" width="415" height="95"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xtl-EJ-OkY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="415" height="54.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="415" height="195"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0r5-xd-6NZ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="415" height="20.5"/>
@@ -475,10 +476,31 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <clLocationButton opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" icon="arrowFilled" label="currentLocation" cornerRadius="12" translatesAutoresizingMaskIntoConstraints="NO" id="TTg-qi-FeO">
+                                                                        <rect key="frame" x="0.0" y="20.5" width="415" height="40.5"/>
+                                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                                        <color key="tintColor" systemColor="systemWhiteColor"/>
+                                                                    </clLocationButton>
+                                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYx-uS-ZPZ">
+                                                                        <rect key="frame" x="0.0" y="61" width="415" height="100"/>
+                                                                        <gestureRecognizers/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="100" id="umW-m0-6hr"/>
+                                                                        </constraints>
+                                                                        <standardMapConfiguration key="preferredConfiguration"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="6RW-Lv-API" id="iWF-0a-ZXQ"/>
+                                                                            <outletCollection property="gestureRecognizers" destination="ctg-So-Qsg" appends="YES" id="VQz-Io-pRn"/>
+                                                                        </connections>
+                                                                    </mapView>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0p-sg-SHU">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="415" height="34"/>
+                                                                        <rect key="frame" x="0.0" y="161" width="415" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <action selector="editingBeganLocationTextField:" destination="6RW-Lv-API" eventType="editingDidBegin" id="VNq-yA-n3Y"/>
+                                                                            <action selector="locationTextFieldTapped:" destination="6RW-Lv-API" eventType="touchDragInside" id="ins-MG-7K4"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -486,7 +508,7 @@
                                                         <viewLayoutGuide key="safeArea" id="UKQ-dU-tIl"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="0Wv-q4-gjB" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="102" width="415" height="36"/>
+                                                        <rect key="frame" x="0.0" y="142.5" width="415" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-kO-zg1">
@@ -502,7 +524,7 @@
                                                         <viewLayoutGuide key="safeArea" id="CWu-RP-GP3"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="5eN-rK-VSX" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="148" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="188.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jrb-el-qUC">
@@ -525,7 +547,7 @@
                                                         <viewLayoutGuide key="safeArea" id="fNw-WA-cJW"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="yaF-Z0-rqA" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="212.5" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="253" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZlP-o5-NSX">
@@ -548,7 +570,7 @@
                                                         <viewLayoutGuide key="safeArea" id="2Bn-Za-q5b"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="aPI-3g-UGl" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="277" width="415" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="317.5" width="415" height="54.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DbN-34-5sd">
@@ -571,7 +593,7 @@
                                                         <viewLayoutGuide key="safeArea" id="imb-0k-qll"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" id="Gmj-wt-NEd" userLabel="Field">
-                                                        <rect key="frame" x="0.0" y="341.5" width="415" height="25.5"/>
+                                                        <rect key="frame" x="0.0" y="382" width="415" height="25.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NX9-a6-bbe">
@@ -610,8 +632,8 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ghQ-Rx-LAT" firstAttribute="top" secondItem="9ic-qr-fVa" secondAttribute="top" id="3u9-YZ-dpd"/>
-                                    <constraint firstAttribute="trailing" secondItem="ghQ-Rx-LAT" secondAttribute="trailing" id="dY3-PP-P8n"/>
-                                    <constraint firstItem="ghQ-Rx-LAT" firstAttribute="leading" secondItem="9ic-qr-fVa" secondAttribute="leading" id="far-R6-pH5"/>
+                                    <constraint firstAttribute="trailing" secondItem="ghQ-Rx-LAT" secondAttribute="trailing" constant="5" id="dY3-PP-P8n"/>
+                                    <constraint firstItem="ghQ-Rx-LAT" firstAttribute="leading" secondItem="9ic-qr-fVa" secondAttribute="leading" constant="5" id="far-R6-pH5"/>
                                     <constraint firstAttribute="bottom" secondItem="ghQ-Rx-LAT" secondAttribute="bottom" constant="10" id="jYD-kT-IGy"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="odb-W5-goZ"/>
@@ -643,11 +665,25 @@
                         <outlet property="driverPolicyNumber" destination="wUM-nF-ctQ" id="pXS-D4-y1m"/>
                         <outlet property="driverVehicleMake" destination="61G-Xd-MjU" id="55w-Pk-mSS"/>
                         <outlet property="driverVehicleModel" destination="tF3-Gd-YOy" id="FSY-Pu-zSd"/>
+                        <outlet property="locationButton" destination="TTg-qi-FeO" id="8uM-se-G73"/>
+                        <outlet property="locationTextField" destination="S0p-sg-SHU" id="Gpw-Pj-yYz"/>
+                        <outlet property="mapView" destination="EYx-uS-ZPZ" id="tgt-p5-ykR"/>
+                        <outlet property="notes" destination="YQ1-xG-Aif" id="2CC-Q9-a6R"/>
+                        <outlet property="officerBadgeNumber" destination="xYN-80-n8l" id="Evk-A4-hNz"/>
+                        <outlet property="officerName" destination="eBc-Rx-fXV" id="eIb-D1-Dt6"/>
+                        <outlet property="policeReportNumber" destination="5Sb-Ul-FZE" id="pLc-Tg-Acc"/>
                         <outlet property="saveButton" destination="Z1W-E6-4sd" id="kd9-HY-dtf"/>
                         <outlet property="scrollView" destination="9ic-qr-fVa" id="aoi-28-4wg"/>
+                        <outlet property="timePicker" destination="DWm-Uu-3pc" id="Emu-ph-yaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhV-IX-qBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ctg-So-Qsg">
+                    <connections>
+                        <action selector="mapViewDidTapped:" destination="6RW-Lv-API" id="kQD-sq-UQ1"/>
+                        <outlet property="delegate" destination="6RW-Lv-API" id="6SU-LT-1RF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1324" y="-737.18140929535241"/>
         </scene>
@@ -853,6 +889,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemWhiteColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

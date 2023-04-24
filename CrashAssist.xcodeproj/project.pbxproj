@@ -30,6 +30,8 @@
 		5843A5C629D5146B008D797D /* CrashAssistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5C529D5146B008D797D /* CrashAssistUITests.swift */; };
 		5843A5C829D5146B008D797D /* CrashAssistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5C729D5146B008D797D /* CrashAssistUITestsLaunchTests.swift */; };
 		588FA31A29EF6FA40072A26D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588FA31929EF6FA40072A26D /* UserManager.swift */; };
+		588FA32029F610570072A26D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588FA31E29F610570072A26D /* CoreLocation.framework */; };
+		588FA32129F610570072A26D /* CoreLocationUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588FA31F29F610570072A26D /* CoreLocationUI.framework */; };
 		6B97498D2F373E8DCF1399D7 /* Pods_CrashAssist_CrashAssistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4A5D508C811C6CA2565B6A /* Pods_CrashAssist_CrashAssistUITests.framework */; };
 		8F14C6006F56B128D450085E /* Pods_CrashAssistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BA9CD8B6D5C79FC895EF8B /* Pods_CrashAssistTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		5843A5C529D5146B008D797D /* CrashAssistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashAssistUITests.swift; sourceTree = "<group>"; };
 		5843A5C729D5146B008D797D /* CrashAssistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashAssistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		588FA31929EF6FA40072A26D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		588FA31E29F610570072A26D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		588FA31F29F610570072A26D /* CoreLocationUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocationUI.framework; path = System/Library/Frameworks/CoreLocationUI.framework; sourceTree = SDKROOT; };
 		831C6E041A97909AB95B660A /* Pods-CrashAssist-CrashAssistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssist-CrashAssistUITests.release.xcconfig"; path = "Target Support Files/Pods-CrashAssist-CrashAssistUITests/Pods-CrashAssist-CrashAssistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F4A5D508C811C6CA2565B6A /* Pods_CrashAssist_CrashAssistUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashAssist_CrashAssistUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashAssist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588FA32029F610570072A26D /* CoreLocation.framework in Frameworks */,
+				588FA32129F610570072A26D /* CoreLocationUI.framework in Frameworks */,
 				041674C655B411BBEFC96B6C /* Pods_CrashAssist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +247,8 @@
 		C4FB3E11832CE42F2F366A22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				588FA31E29F610570072A26D /* CoreLocation.framework */,
+				588FA31F29F610570072A26D /* CoreLocationUI.framework */,
 				A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */,
 				9F4A5D508C811C6CA2565B6A /* Pods_CrashAssist_CrashAssistUITests.framework */,
 				A9BA9CD8B6D5C79FC895EF8B /* Pods_CrashAssistTests.framework */,
@@ -260,12 +268,15 @@
 				5843A59E29D5146A008D797D /* Frameworks */,
 				5843A59F29D5146A008D797D /* Resources */,
 				50274225DFB5C23C51F60C85 /* [CP] Embed Pods Frameworks */,
+				90079AC352E3F00FE82AA98A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CrashAssist;
+			packageProductDependencies = (
+			);
 			productName = CrashAssist;
 			productReference = 5843A5A129D5146A008D797D /* CrashAssist.app */;
 			productType = "com.apple.product-type.application";
@@ -298,6 +309,7 @@
 				5843A5BE29D5146B008D797D /* Frameworks */,
 				5843A5BF29D5146B008D797D /* Resources */,
 				1A124648BD011198E48045FB /* [CP] Embed Pods Frameworks */,
+				9E99FB016CA5D1B541D23A9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,6 +353,8 @@
 				Base,
 			);
 			mainGroup = 5843A59829D5146A008D797D;
+			packageReferences = (
+			);
 			productRefGroup = 5843A5A229D5146A008D797D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -415,6 +429,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrashAssist/Pods-CrashAssist-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		90079AC352E3F00FE82AA98A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashAssist/Pods-CrashAssist-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashAssist/Pods-CrashAssist-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrashAssist/Pods-CrashAssist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		964C031F4F8EE3076C90FF23 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,6 +466,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E99FB016CA5D1B541D23A9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashAssist-CrashAssistUITests/Pods-CrashAssist-CrashAssistUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashAssist-CrashAssistUITests/Pods-CrashAssist-CrashAssistUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrashAssist-CrashAssistUITests/Pods-CrashAssist-CrashAssistUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFD0EB3FFEBD5EF6B34AE7E0 /* [CP] Check Pods Manifest.lock */ = {
@@ -682,6 +730,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RF37X3S82D;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CrashAssist/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Crash Assist";
@@ -712,6 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RF37X3S82D;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CrashAssist/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Crash Assist";

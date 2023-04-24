@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreLocation
+import FirebaseFirestore
 
 struct Log: Codable, Equatable {
     enum FieldKeys: String, CodingKey {
@@ -42,7 +44,7 @@ struct Log: Codable, Equatable {
     var otherVehicleLicensePlate: String?
     var otherVehicleMedia: [String]?
     var witnesses: [String]?
-    var location: String?
+    var location: GeoPoint?
     var time: Date?
     var yourVehicleMedia: [String]?
     var policeReport: String?
@@ -66,7 +68,7 @@ struct Log: Codable, Equatable {
         otherVehicleModel = dictionary[.otherVehicleModel] as? String
         otherVehicleLicensePlate = dictionary[.otherVehicleLicensePlate] as? String
         witnesses = dictionary[.witnesses] as? [String]
-        location = dictionary[.location] as? String
+        location = dictionary[.location] as? GeoPoint
         time = dictionary[.time] as? Date
         yourVehicleMedia = dictionary[.yourVehicleMedia] as? [String]
         otherVehicleMedia = dictionary[.otherVehicleMedia] as? [String]

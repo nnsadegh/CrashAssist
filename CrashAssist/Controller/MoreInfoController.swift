@@ -20,7 +20,6 @@ class MoreInfoController : BaseViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        let currUser = Auth.auth().currentUser!
         let data: [UserManager.UserField: Any] = [
             UserManager.UserField.birthdate: birthdatePicker.date,
             UserManager.UserField.vin: vinNumberField.text!

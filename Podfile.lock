@@ -782,6 +782,7 @@ PODS:
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
+  - SwiftyFORM (1.8.6)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -797,6 +798,7 @@ DEPENDENCIES:
   - GooglePlaces
   - GoogleSignIn
   - SDWebImage
+  - SwiftyFORM
 
 SPEC REPOS:
   trunk:
@@ -835,6 +837,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - SwiftyFORM
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -872,7 +875,8 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SwiftyFORM: 9e8693193e626cf70940641433c810ba1ef3f53b
 
-PODFILE CHECKSUM: f88047967a44e1881b1105665297d6a25dffd571
+PODFILE CHECKSUM: 4f34612dbe588d6ed3e3c54e4814881f3b8a2f71
 
 COCOAPODS: 1.12.0

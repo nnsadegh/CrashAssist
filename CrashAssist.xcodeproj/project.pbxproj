@@ -8,16 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		041674C655B411BBEFC96B6C /* Pods_CrashAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */; };
+		5801F66629FF73EB00DFDD71 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F66529FF73EB00DFDD71 /* TestView.swift */; };
 		580F109629E0C296008C401B /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109529E0C296008C401B /* HomePageController.swift */; };
 		580F109829E0C2A9008C401B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109729E0C2A9008C401B /* SettingsController.swift */; };
 		580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109929E0C2B6008C401B /* ProfileController.swift */; };
 		580F109C29E0C4CB008C401B /* NewLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109B29E0C4CB008C401B /* NewLogController.swift */; };
 		580F109F29E0E8A8008C401B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109E29E0E8A8008C401B /* Log.swift */; };
-		580F10A129E0E8B4008C401B /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A029E0E8B4008C401B /* LogModel.swift */; };
+		580F10A129E0E8B4008C401B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A029E0E8B4008C401B /* LogManager.swift */; };
 		580F10A329E23F6B008C401B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A229E23F6B008C401B /* User.swift */; };
 		580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A529E249B8008C401B /* MoreInfoController.swift */; };
 		5819057A29E2745500C84109 /* FSUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5819057929E2745500C84109 /* FSUtil.swift */; };
-		5819057E29E79A3900C84109 /* RoundedImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */; };
+		581B1E0029FA11F9008160DA /* NewLogControllerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */; };
+		581B1E1029FF1B67008160DA /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */; };
+		581B1E1129FF1B67008160DA /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E0F29FF1B67008160DA /* FieldTableViewCell.xib */; };
+		581B1E1429FF1C0E008160DA /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E1229FF1C0E008160DA /* TextViewTableViewCell.swift */; };
+		581B1E1529FF1C0E008160DA /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E1329FF1C0E008160DA /* TextViewTableViewCell.xib */; };
+		581B1E1829FF1C41008160DA /* TimePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E1629FF1C41008160DA /* TimePickerTableViewCell.swift */; };
+		581B1E1929FF1C41008160DA /* TimePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E1729FF1C41008160DA /* TimePickerTableViewCell.xib */; };
+		581B1E1D29FF1C65008160DA /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E1B29FF1C65008160DA /* LocationTableViewCell.swift */; };
+		581B1E1E29FF1C65008160DA /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E1C29FF1C65008160DA /* LocationTableViewCell.xib */; };
+		581B1E2129FF1DD9008160DA /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E1F29FF1DD9008160DA /* HeaderTableViewCell.swift */; };
+		581B1E2229FF1DD9008160DA /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E2029FF1DD9008160DA /* HeaderTableViewCell.xib */; };
+		581B1E2429FF63E8008160DA /* ViewLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E2329FF63E8008160DA /* ViewLogController.swift */; };
 		5838DEC929DFB31600240011 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5838DEC829DFB31600240011 /* GoogleService-Info.plist */; };
 		5838DECB29DFB4B300240011 /* LandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838DECA29DFB4B300240011 /* LandingController.swift */; };
 		5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843A5A429D5146A008D797D /* AppDelegate.swift */; };
@@ -56,17 +68,29 @@
 /* Begin PBXFileReference section */
 		4D2E84AA35701DF92820091D /* Pods-CrashAssistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssistTests.debug.xcconfig"; path = "Target Support Files/Pods-CrashAssistTests/Pods-CrashAssistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		501F922DCB48300CB79148CE /* Pods-CrashAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssist.release.xcconfig"; path = "Target Support Files/Pods-CrashAssist/Pods-CrashAssist.release.xcconfig"; sourceTree = "<group>"; };
+		5801F66529FF73EB00DFDD71 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		580F109529E0C296008C401B /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		580F109729E0C2A9008C401B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		580F109929E0C2B6008C401B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		580F109B29E0C4CB008C401B /* NewLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogController.swift; sourceTree = "<group>"; };
 		580F109D29E0DACF008C401B /* CrashAssist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrashAssist.entitlements; sourceTree = "<group>"; };
 		580F109E29E0E8A8008C401B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		580F10A029E0E8B4008C401B /* LogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
+		580F10A029E0E8B4008C401B /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		580F10A229E23F6B008C401B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		580F10A529E249B8008C401B /* MoreInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoController.swift; sourceTree = "<group>"; };
 		5819057929E2745500C84109 /* FSUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUtil.swift; sourceTree = "<group>"; };
-		5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImagePickerController.swift; sourceTree = "<group>"; };
+		581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogControllerV2.swift; sourceTree = "<group>"; };
+		581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
+		581B1E0F29FF1B67008160DA /* FieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
+		581B1E1229FF1C0E008160DA /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		581B1E1329FF1C0E008160DA /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		581B1E1629FF1C41008160DA /* TimePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerTableViewCell.swift; sourceTree = "<group>"; };
+		581B1E1729FF1C41008160DA /* TimePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerTableViewCell.xib; sourceTree = "<group>"; };
+		581B1E1B29FF1C65008160DA /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		581B1E1C29FF1C65008160DA /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		581B1E1F29FF1DD9008160DA /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		581B1E2029FF1DD9008160DA /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		581B1E2329FF63E8008160DA /* ViewLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogController.swift; sourceTree = "<group>"; };
 		5838DEC829DFB31600240011 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5838DECA29DFB4B300240011 /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
 		5843A5A129D5146A008D797D /* CrashAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +219,14 @@
 				580F109729E0C2A9008C401B /* SettingsController.swift */,
 				580F109929E0C2B6008C401B /* ProfileController.swift */,
 				580F109B29E0C4CB008C401B /* NewLogController.swift */,
-				5819057D29E79A3900C84109 /* RoundedImagePickerController.swift */,
+				581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */,
+				581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */,
+				581B1E1229FF1C0E008160DA /* TextViewTableViewCell.swift */,
+				581B1E1629FF1C41008160DA /* TimePickerTableViewCell.swift */,
+				581B1E1B29FF1C65008160DA /* LocationTableViewCell.swift */,
+				581B1E1F29FF1DD9008160DA /* HeaderTableViewCell.swift */,
+				581B1E2329FF63E8008160DA /* ViewLogController.swift */,
+				5801F66529FF73EB00DFDD71 /* TestView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				580F109E29E0E8A8008C401B /* Log.swift */,
-				580F10A029E0E8B4008C401B /* LogModel.swift */,
+				580F10A029E0E8B4008C401B /* LogManager.swift */,
 				580F10A229E23F6B008C401B /* User.swift */,
 				588FA31929EF6FA40072A26D /* UserManager.swift */,
 			);
@@ -216,6 +247,11 @@
 			children = (
 				5843A5AA29D5146A008D797D /* Main.storyboard */,
 				5843A5AF29D5146B008D797D /* LaunchScreen.storyboard */,
+				581B1E0F29FF1B67008160DA /* FieldTableViewCell.xib */,
+				581B1E1329FF1C0E008160DA /* TextViewTableViewCell.xib */,
+				581B1E1729FF1C41008160DA /* TimePickerTableViewCell.xib */,
+				581B1E1C29FF1C65008160DA /* LocationTableViewCell.xib */,
+				581B1E2029FF1DD9008160DA /* HeaderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,9 +408,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5843A5B129D5146B008D797D /* LaunchScreen.storyboard in Resources */,
+				581B1E2229FF1DD9008160DA /* HeaderTableViewCell.xib in Resources */,
+				581B1E1529FF1C0E008160DA /* TextViewTableViewCell.xib in Resources */,
+				581B1E1129FF1B67008160DA /* FieldTableViewCell.xib in Resources */,
 				5838DEC929DFB31600240011 /* GoogleService-Info.plist in Resources */,
 				5843A5AE29D5146B008D797D /* Assets.xcassets in Resources */,
 				5843A5AC29D5146A008D797D /* Main.storyboard in Resources */,
+				581B1E1E29FF1C65008160DA /* LocationTableViewCell.xib in Resources */,
+				581B1E1929FF1C41008160DA /* TimePickerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,18 +580,25 @@
 				580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */,
 				5819057A29E2745500C84109 /* FSUtil.swift in Sources */,
 				580F109829E0C2A9008C401B /* SettingsController.swift in Sources */,
+				581B1E1829FF1C41008160DA /* TimePickerTableViewCell.swift in Sources */,
 				588FA31A29EF6FA40072A26D /* UserManager.swift in Sources */,
+				581B1E2429FF63E8008160DA /* ViewLogController.swift in Sources */,
 				580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */,
+				581B1E1D29FF1C65008160DA /* LocationTableViewCell.swift in Sources */,
 				580F109F29E0E8A8008C401B /* Log.swift in Sources */,
-				5819057E29E79A3900C84109 /* RoundedImagePickerController.swift in Sources */,
 				5843A5A929D5146A008D797D /* BaseViewController.swift in Sources */,
+				581B1E2129FF1DD9008160DA /* HeaderTableViewCell.swift in Sources */,
+				581B1E1029FF1B67008160DA /* FieldTableViewCell.swift in Sources */,
 				580F109629E0C296008C401B /* HomePageController.swift in Sources */,
 				5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */,
 				5838DECB29DFB4B300240011 /* LandingController.swift in Sources */,
+				581B1E0029FA11F9008160DA /* NewLogControllerV2.swift in Sources */,
 				580F109C29E0C4CB008C401B /* NewLogController.swift in Sources */,
-				580F10A129E0E8B4008C401B /* LogModel.swift in Sources */,
+				580F10A129E0E8B4008C401B /* LogManager.swift in Sources */,
 				5843A5A729D5146A008D797D /* SceneDelegate.swift in Sources */,
+				5801F66629FF73EB00DFDD71 /* TestView.swift in Sources */,
 				580F10A329E23F6B008C401B /* User.swift in Sources */,
+				581B1E1429FF1C0E008160DA /* TextViewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

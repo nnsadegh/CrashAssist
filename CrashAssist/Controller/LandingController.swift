@@ -14,6 +14,8 @@ import FirebaseGoogleAuthUI
 
 class LandingController: BaseViewController {
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,9 +23,19 @@ class LandingController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserManager.shared.userLoggedIn() {
-            self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+        spinner.startAnimating()
+        UserManager.shared.userLoggedIn() { isLoggedIn in
+            self.spinner.stopAnimating()
+            if isLoggedIn {
+                self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+            } else {
+                print("User is not logged in")
+            }
         }
+
+//        if UserManager.shared.userLoggedIn() {
+//            self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
+//        }
     }
     
     

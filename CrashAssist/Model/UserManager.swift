@@ -112,8 +112,9 @@ class UserManager {
         }
     }
     
-    func userLoggedIn() -> Bool {
-        return Auth.auth().currentUser != nil
+    func userLoggedIn(onComplete: @escaping (Bool) -> Void) {
+        let isLoggedIn = Auth.auth().currentUser != nil
+        onComplete(isLoggedIn)
     }
     
     func signOut() {

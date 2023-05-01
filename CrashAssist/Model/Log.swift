@@ -22,8 +22,8 @@ struct Log: Codable, Equatable {
         case otherVehicleModel
         case otherVehicleLicensePlate
         case otherVehicleMedia
-        case witnesses
         case location
+        case locationString
         case time
         case yourVehicleMedia
         case policeReport
@@ -44,7 +44,8 @@ struct Log: Codable, Equatable {
     var otherVehicleLicensePlate: String?
     var otherVehicleMedia: [String]?
     var witnesses: [String]?
-    var location: GeoPoint?
+    var location: GeoPoint
+    var locationString: String
     var time: Date?
     var yourVehicleMedia: [String]?
     var policeReport: String?
@@ -67,8 +68,8 @@ struct Log: Codable, Equatable {
         otherVehicleMake = dictionary[.otherVehicleMake] as? String
         otherVehicleModel = dictionary[.otherVehicleModel] as? String
         otherVehicleLicensePlate = dictionary[.otherVehicleLicensePlate] as? String
-        witnesses = dictionary[.witnesses] as? [String]
-        location = dictionary[.location] as? GeoPoint
+        location = dictionary[.location] as! GeoPoint
+        locationString = dictionary[.locationString] as! String
         time = dictionary[.time] as? Date
         yourVehicleMedia = dictionary[.yourVehicleMedia] as? [String]
         otherVehicleMedia = dictionary[.otherVehicleMedia] as? [String]

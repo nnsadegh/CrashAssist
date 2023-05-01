@@ -9,6 +9,7 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var birthdateText: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var imagePicker = UIImagePickerController()
     
@@ -16,7 +17,7 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
-        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2.0
         profileImageView.layer.masksToBounds = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileController.handleSelectProfileImageView))
         profileImageView.addGestureRecognizer(tapGesture)
@@ -24,6 +25,7 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.spinner.startAnimating()
         let user = UserManager.shared.getCurrentUser()!
         // Do something with the user object
         nameText.text = user.name
@@ -39,7 +41,15 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
         
         // Download and display the profile image using SDWebImage
         if let url = user.profileImageURL {
-            self.profileImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "account_default"))
+            self.profileImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "account_default"))  { (image, error, cacheType, url) in
+                // This block is executed when the image is loaded or when an error occurs
+                self.spinner.stopAnimating()
+                if let error = error {
+                    // handle error
+                    print("Error loading image: \(error.localizedDescription)")
+                    return
+                }
+            }
         }
     }
     
@@ -83,8 +93,8 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
                             print("Failed to update field due to: \(error)")
                         }
                         self.spinner.stopAnimating()
+                        self.profileImageView.image = image
                     }
-                    self.profileImageView.sd_setImage(with: downloadURL, placeholderImage: UIImage(named: "account_default"))
                 }
             }
         }

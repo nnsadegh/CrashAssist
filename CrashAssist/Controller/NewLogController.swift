@@ -27,7 +27,6 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
     @IBOutlet weak var driverVehicleModel: UITextField!
     @IBOutlet weak var driverLicensePlate: UITextField!
     // MARK: Miscellaneous Fields
-    @IBOutlet weak var locationButton: CLLocationButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -40,6 +39,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
     let autocompleteController = GMSAutocompleteViewController()
     let geocoder = CLGeocoder()
     var selectedLocation: CLLocationCoordinate2D?
+    var address: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +61,6 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         autocompleteController.delegate = self
         mapView.delegate = self
         manager.delegate = self
-        
-        locationButton.addTarget(self, action: #selector(getCurrentLocation), for: .touchUpInside)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -74,6 +72,18 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         
         // Update the text field with the selected address
         locationTextField.text = place.formattedAddress
+        address = place.formattedAddress
+        
+        geocoder.geocodeAddressString(address!) { placemarks, error in
+            guard let placemark = placemarks?.first,
+                  let location = placemark.location?.coordinate else {
+                // Handle the error
+                return
+            }
+            // Store the selected location
+            self.selectedLocation = location
+            print("Latitude: \(location.latitude), Longitude: \(location.longitude)")
+        }
         
         // Dismiss the autocomplete view controller
         dismiss(animated: true, completion: nil)
@@ -109,10 +119,10 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             .otherVehicleModel: driverVehicleModel.text ?? "",
             .otherVehicleLicensePlate: driverLicensePlate.text ?? "",
             .location: selectedLocation != nil ? GeoPoint(latitude: selectedLocation!.latitude, longitude: selectedLocation!.longitude) : "",
+            .locationString: address ?? "Location not Entered",
             .time: timePicker.date,
-            .witnesses: [],
-            .yourVehicleMedia: [],
-            .otherVehicleMedia: [],
+            .yourVehicleMedia: [URL](),
+            .otherVehicleMedia: [URL](),
             .policeReport: policeReportNumber.text  ?? "",
             .officerName: officerName.text  ?? "",
             .officerBadgeNumber: officerBadgeNumber.text ?? "",
@@ -125,19 +135,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             return
         }
         
-        do {
-            let data = try Firestore.Encoder().encode(log)
-            
-            Firestore.firestore().collection("logs").document(log.logID).setData(data) { error in
-                if let error = error {
-                    print("Error saving log: \(error.localizedDescription)")
-                } else {
-                    print("Log saved successfully")
-                }
-            }
-        } catch {
-            print("Error encoding log: \(error.localizedDescription)")
-        }
+        LogManager.shared.addLog(log: log)
         self.dismiss(animated: true)
     }
     
@@ -162,17 +160,16 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField != locationTextField { return }
         guard let address = textField.text else {
             return
         }
-        
         geocoder.geocodeAddressString(address) { placemarks, error in
             guard let placemark = placemarks?.first,
                   let location = placemark.location?.coordinate else {
                 // Handle the error
                 return
             }
-            
             // Store the selected location
             self.selectedLocation = location
             print("Latitude: \(location.latitude), Longitude: \(location.longitude)")

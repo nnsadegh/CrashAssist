@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocationCell" rowHeight="180" id="FaS-2e-BhV">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FaS-2e-BhV" id="J3H-dz-1zg">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dth-UT-7sS">
+                        <rect key="frame" x="20" y="11" width="335" height="158"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbi-qg-mb3">
+                                <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-KG-a00">
+                                <rect key="frame" x="0.0" y="26.333333333333343" width="335" height="83"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUv-B3-Mbc">
+                                <rect key="frame" x="0.0" y="115.33333333333333" width="335" height="42.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xUv-B3-Mbc" secondAttribute="trailing" id="LWC-or-d8w"/>
+                            <constraint firstAttribute="trailing" secondItem="tbi-qg-mb3" secondAttribute="trailing" id="X9Y-1e-NOT"/>
+                            <constraint firstItem="xUv-B3-Mbc" firstAttribute="leading" secondItem="dth-UT-7sS" secondAttribute="leading" id="cbV-Ep-ObH"/>
+                            <constraint firstItem="tbi-qg-mb3" firstAttribute="leading" secondItem="dth-UT-7sS" secondAttribute="leading" id="en0-Vy-qc4"/>
+                            <constraint firstAttribute="bottom" secondItem="xUv-B3-Mbc" secondAttribute="bottom" id="jag-pZ-Esw"/>
+                            <constraint firstItem="rKm-KG-a00" firstAttribute="leading" secondItem="dth-UT-7sS" secondAttribute="leading" id="krO-7e-ZIR"/>
+                            <constraint firstAttribute="trailing" secondItem="rKm-KG-a00" secondAttribute="trailing" id="vuZ-iZ-Vqu"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dth-UT-7sS" firstAttribute="leading" secondItem="J3H-dz-1zg" secondAttribute="leadingMargin" id="BGS-Dd-Nru"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dth-UT-7sS" secondAttribute="trailing" id="PMx-Mw-xMg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dth-UT-7sS" secondAttribute="bottom" id="Tbh-XS-Dm1"/>
+                    <constraint firstItem="dth-UT-7sS" firstAttribute="top" secondItem="J3H-dz-1zg" secondAttribute="topMargin" id="uT2-th-eXJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-37" y="-105"/>
+        </tableViewCell>
+    </objects>
+</document>

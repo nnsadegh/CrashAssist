@@ -16,7 +16,7 @@ class LoadingScreenController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         //Setup Animation View
         loadingAnimationView.contentMode = .scaleAspectFit
         loadingAnimationView.loopMode = .playOnce
@@ -25,7 +25,10 @@ class LoadingScreenController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Play loading animation
         loadingAnimationView.play()
+        
+        // Check login status
         UserManager.shared.userLoggedIn() { isLoggedIn in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 self.loadingAnimationView.stop()

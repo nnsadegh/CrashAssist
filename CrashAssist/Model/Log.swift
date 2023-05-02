@@ -53,6 +53,9 @@ struct Log: Codable, Equatable {
     var officerBadgeNumber: String?
     var description: String?
     
+    /**
+     Initialize a Log object given a dictionary with Keys from the enum class above and values of any type
+     */
     init?(dictionary: [FieldKeys: Any]) {
         guard let uid = dictionary[.userID] as? String,
               let logid = dictionary[.logID] as? String else {

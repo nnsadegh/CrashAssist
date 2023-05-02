@@ -11,13 +11,14 @@ import FirebaseFirestoreSwift
 import CoreLocation
 import MapKit
 
-struct TestView: View {
+struct LogView: View {
     var selectedLog: Log!
     var fieldNA = "Field N/A"
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                // Display other driver details
                 Text("Other Driver Details").font(.title)
                 
                 Group {
@@ -31,6 +32,7 @@ struct TestView: View {
                     KeyValueRow(key: "Other Vehicle License Plate", value: selectedLog.otherVehicleLicensePlate ?? fieldNA)
                 }
                 Text("Your Details").font(.title)
+                // Display map view
                 Text("Accident Location").font(.title3.bold())
                 if let location = getLocationFromLog(selectedLog) {
                     MapView(centerCoordinate: location.coordinate)
@@ -39,7 +41,7 @@ struct TestView: View {
                 }
                 Text(selectedLog.locationString)
                 Divider()
-
+                // Display your details with string values
                 Group {
                     KeyValueRow(key: "Time", value: formatDate(selectedLog.time))
                     KeyValueRow(key: "Police Report", value: selectedLog.policeReport ?? fieldNA)
@@ -51,12 +53,18 @@ struct TestView: View {
         }
     }
     
+    /**
+     Convert geopoint into a CLLocation object for map display
+     */
     func getLocationFromLog(_ log: Log) -> CLLocation? {
         let latitude = log.location.latitude
         let longitude = log.location.longitude
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 
+    /**
+     Format date object from log into a string object
+     */
     func formatDate(_ date: Date?) -> String {
         guard let date = date else {
             return ""
@@ -68,9 +76,15 @@ struct TestView: View {
     }
 }
 
+/**
+ Create MapView from MapKit that shows the location for the log being viewed
+ */
 struct MapView: UIViewRepresentable {
     var centerCoordinate: CLLocationCoordinate2D
 
+    /**
+     Create map view element
+     */
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
@@ -78,6 +92,9 @@ struct MapView: UIViewRepresentable {
         return mapView
     }
 
+    /**
+     Updated map view element with proper data and frame
+     */
     func updateUIView(_ view: MKMapView, context: Context) {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: centerCoordinate, span: span)
@@ -93,6 +110,9 @@ struct MapView: UIViewRepresentable {
         Coordinator(self)
     }
 
+    /**
+     Define pin annotation for map view
+     */
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
 
@@ -108,6 +128,9 @@ struct MapView: UIViewRepresentable {
     }
 }
 
+/**
+ The following code represents the Key Value pairs in the view where the values are strings
+ */
 struct KeyValueRow: View {
     let key: String
     let value: String
@@ -129,6 +152,7 @@ struct KeyValueRow: View {
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
+        // Create dummy data for preview
         let dictionary: [Log.FieldKeys: Any] = [
             .logID: "123456789",
             .userID: "987654321",
@@ -152,7 +176,7 @@ struct TestView_Previews: PreviewProvider {
         ]
 
         if let log = Log(dictionary: dictionary) {
-            TestView(selectedLog: log)
+            LogView(selectedLog: log)
         }
     }
 }

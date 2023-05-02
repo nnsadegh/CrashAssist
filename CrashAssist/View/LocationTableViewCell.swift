@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ A cell with a label and both a map and a text field for input
+ */
 class LocationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

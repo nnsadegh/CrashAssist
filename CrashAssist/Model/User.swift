@@ -15,6 +15,9 @@ struct User : Codable {
     var birthdate: Date?
     var vin: String?
     
+    /**
+     Create a user object given an ID and user data in a dictionary using the enums from the UserManager class
+     */
     init(userID: String, data: [UserManager.UserField: Any]) {
         uid = userID
         name = data[UserManager.UserField.name] as? String

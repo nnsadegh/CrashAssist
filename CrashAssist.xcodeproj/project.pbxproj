@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041674C655B411BBEFC96B6C /* Pods_CrashAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */; };
-		5801F66629FF73EB00DFDD71 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F66529FF73EB00DFDD71 /* TestView.swift */; };
+		5801F66629FF73EB00DFDD71 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F66529FF73EB00DFDD71 /* LogView.swift */; };
 		5801F6682A00815F00DFDD71 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F6672A00815F00DFDD71 /* WeatherView.swift */; };
 		5801F66D2A009CCE00DFDD71 /* 90422-security-car-black.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */; };
 		5801F66F2A00A35000DFDD71 /* loading-blue-home.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F66E2A00A35000DFDD71 /* loading-blue-home.json */; };
@@ -23,7 +23,6 @@
 		580F10A129E0E8B4008C401B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A029E0E8B4008C401B /* LogManager.swift */; };
 		580F10A329E23F6B008C401B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A229E23F6B008C401B /* User.swift */; };
 		580F10A629E249B8008C401B /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F10A529E249B8008C401B /* MoreInfoController.swift */; };
-		5819057A29E2745500C84109 /* FSUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5819057929E2745500C84109 /* FSUtil.swift */; };
 		581B1E0029FA11F9008160DA /* NewLogControllerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */; };
 		581B1E1029FF1B67008160DA /* FieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */; };
 		581B1E1129FF1B67008160DA /* FieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581B1E0F29FF1B67008160DA /* FieldTableViewCell.xib */; };
@@ -74,7 +73,7 @@
 /* Begin PBXFileReference section */
 		4D2E84AA35701DF92820091D /* Pods-CrashAssistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssistTests.debug.xcconfig"; path = "Target Support Files/Pods-CrashAssistTests/Pods-CrashAssistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		501F922DCB48300CB79148CE /* Pods-CrashAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssist.release.xcconfig"; path = "Target Support Files/Pods-CrashAssist/Pods-CrashAssist.release.xcconfig"; sourceTree = "<group>"; };
-		5801F66529FF73EB00DFDD71 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5801F66529FF73EB00DFDD71 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		5801F6672A00815F00DFDD71 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "90422-security-car-black.json"; sourceTree = "<group>"; };
 		5801F66E2A00A35000DFDD71 /* loading-blue-home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-blue-home.json"; sourceTree = "<group>"; };
@@ -90,7 +89,6 @@
 		580F10A029E0E8B4008C401B /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		580F10A229E23F6B008C401B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		580F10A529E249B8008C401B /* MoreInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoController.swift; sourceTree = "<group>"; };
-		5819057929E2745500C84109 /* FSUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUtil.swift; sourceTree = "<group>"; };
 		581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogControllerV2.swift; sourceTree = "<group>"; };
 		581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTableViewCell.swift; sourceTree = "<group>"; };
 		581B1E0F29FF1B67008160DA /* FieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,12 +169,13 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		580F10A429E24025008C401B /* Utilities */ = {
+		5801F6762A00B51F00DFDD71 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				5819057929E2745500C84109 /* FSUtil.swift */,
+				5801F66529FF73EB00DFDD71 /* LogView.swift */,
+				5801F6672A00815F00DFDD71 /* WeatherView.swift */,
 			);
-			path = Utilities;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		5843A59829D5146A008D797D = {
@@ -204,8 +203,8 @@
 		5843A5A329D5146A008D797D /* CrashAssist */ = {
 			isa = PBXGroup;
 			children = (
+				5801F6762A00B51F00DFDD71 /* SwiftUI */,
 				5801F66B2A009CBD00DFDD71 /* Animations */,
-				580F10A429E24025008C401B /* Utilities */,
 				580F109D29E0DACF008C401B /* CrashAssist.entitlements */,
 				5838DEC829DFB31600240011 /* GoogleService-Info.plist */,
 				5843A5D529D5147C008D797D /* Model */,
@@ -245,8 +244,6 @@
 				580F109B29E0C4CB008C401B /* NewLogController.swift */,
 				581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */,
 				581B1E2329FF63E8008160DA /* ViewLogController.swift */,
-				5801F66529FF73EB00DFDD71 /* TestView.swift */,
-				5801F6672A00815F00DFDD71 /* WeatherView.swift */,
 				5801F6722A00AF1500DFDD71 /* LoadingScreenController.swift */,
 			);
 			path = Controller;
@@ -608,7 +605,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */,
-				5819057A29E2745500C84109 /* FSUtil.swift in Sources */,
 				580F109829E0C2A9008C401B /* SettingsController.swift in Sources */,
 				581B1E1829FF1C41008160DA /* TimePickerTableViewCell.swift in Sources */,
 				588FA31A29EF6FA40072A26D /* UserManager.swift in Sources */,
@@ -628,7 +624,7 @@
 				580F109C29E0C4CB008C401B /* NewLogController.swift in Sources */,
 				580F10A129E0E8B4008C401B /* LogManager.swift in Sources */,
 				5843A5A729D5146A008D797D /* SceneDelegate.swift in Sources */,
-				5801F66629FF73EB00DFDD71 /* TestView.swift in Sources */,
+				5801F66629FF73EB00DFDD71 /* LogView.swift in Sources */,
 				580F10A329E23F6B008C401B /* User.swift in Sources */,
 				581B1E1429FF1C0E008160DA /* TextViewTableViewCell.swift in Sources */,
 			);

@@ -10,6 +10,7 @@ import UIKit
 
 class NewLogControllerV2: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // Fields for log creation page with string values
     let otherDriverFields = ["Driver's Name", "Phone Number", "Address", "Insurance Company", "Policy Number", "Vehicle Make", "Vehicle Model", "License Plate #"]
     let miscellaneousFields = ["Police Report #", "Office Name", "Officer Badge Number"]
     
@@ -28,6 +29,9 @@ class NewLogControllerV2: BaseViewController, UITableViewDelegate, UITableViewDa
         2
     }
     
+    /**
+     Configure each table view cell with this function
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:

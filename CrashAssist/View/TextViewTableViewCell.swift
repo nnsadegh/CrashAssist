@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ A cell with a label and a text view for input
+ */
 class TextViewTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

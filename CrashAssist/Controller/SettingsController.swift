@@ -16,11 +16,17 @@ class SettingsController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    /**
+     Sign the user out using the UserManager and go to the landing page
+     */
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
         UserManager.shared.signOut()
         self.performSegue(withIdentifier: "goLandingFromSettings", sender: self)
     }
     
+    /**
+     Confirm action and then (if confirmed) delete all the logs from the user's data
+     */
     @IBAction func clearLogDataButtonTapped(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Delete all logs?", message: "Are you sure you want to delete all logs?", preferredStyle: .actionSheet)
 
@@ -44,16 +50,34 @@ class SettingsController: BaseViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    /**
+     Confirm action and then (if confirmed) delete the user's account and redirect them to the landing page
+     */
     @IBAction func deleteAccountButtonTapped(_ sender: UIButton) {
-        LogManager.shared.deleteAllLogs {
-            UserManager.shared.deleteUser { error in
-                if let error = error {
-                    print("Error deleting user: \(error)")
-                } else {
-                    self.performSegue(withIdentifier: "goLandingFromSettings", sender: self)
+        let alertController = UIAlertController(title: "Delete all logs?", message: "Are you sure you want to delete all logs?", preferredStyle: .actionSheet)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            LogManager.shared.deleteAllLogs {
+                UserManager.shared.deleteUser { error in
+                    if let error = error {
+                        print("Error deleting user: \(error)")
+                    } else {
+                        self.performSegue(withIdentifier: "goLandingFromSettings", sender: self)
+                    }
                 }
             }
         }
+        alertController.addAction(deleteAction)
+        if let popoverPresentationController = alertController.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.maxY, width: 0, height: 0)
+            popoverPresentationController.permittedArrowDirections = []
+        }
+
+        present(alertController, animated: true, completion: nil)
     }
     
 }

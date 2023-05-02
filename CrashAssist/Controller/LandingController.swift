@@ -67,13 +67,16 @@ extension BaseViewController: FUIAuthDelegate {
             return
         }
         
+        // Check if the user has filled in their Vin already (meaning they are not signing up but logging in)
         if (UserManager.shared.getCurrentUser()?.vin != nil) {
             // User Document exists
-            // Don't ask for more information
+            // User is logging in
+            // Don't ask for more information and go to home page
             self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
         } else {
             // User Document does not exist
-            // Transition to more page
+            // User is signing up
+            // Transition to more page for more info
             let currUser = Auth.auth().currentUser!
             let data: [UserManager.UserField: Any] = [
                 UserManager.UserField.name: currUser.displayName!,

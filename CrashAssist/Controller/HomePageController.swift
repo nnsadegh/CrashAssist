@@ -21,7 +21,7 @@ class HomePageController: BaseViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        // Add tap recognizer for log cells in table view
         cellTap.addTarget(self, action: #selector(handleCellTap(_:)))
         
         // Setup animation views
@@ -63,6 +63,9 @@ class HomePageController: BaseViewController, UITableViewDataSource {
         }
     }
     
+    /**
+     Setup Log table view
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -87,20 +90,16 @@ class HomePageController: BaseViewController, UITableViewDataSource {
         return true
     }
     
+    /**
+     Handle log rearranging
+     */
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         LogManager.shared.rearrangeLogs(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
-    @IBAction func editButtonDidTapped(_ sender: UIBarButtonItem) {
-        if sender.title == "Edit" {
-            sender.title = "Done"
-            tableView.isEditing = true
-        } else {
-            sender.title = "Edit"
-            tableView.isEditing = false
-        }
-    }
-    
+    /**
+     Handle log deletion
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
@@ -112,6 +111,9 @@ class HomePageController: BaseViewController, UITableViewDataSource {
         }
     }
     
+    /**
+     Handle log taps, whether swiping or single tap (weird simulator bug)
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLog = LogManager.shared.log(at: indexPath.row)
         performSegue(withIdentifier: "ViewLogSegue", sender: self)
@@ -129,6 +131,9 @@ class HomePageController: BaseViewController, UITableViewDataSource {
         }
     }
     
+    /**
+     Pass the selected log to the ViewLog page
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewLogSegue" {
             if let destinationVC = segue.destination as? ViewLogController {

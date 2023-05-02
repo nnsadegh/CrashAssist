@@ -35,6 +35,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
     @IBOutlet weak var officerBadgeNumber: UITextField!
     @IBOutlet weak var notes: UITextView!
     
+    // MARK: Location management variables
     let manager = CLLocationManager()
     let autocompleteController = GMSAutocompleteViewController()
     let geocoder = CLGeocoder()
@@ -63,6 +64,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         manager.delegate = self
     }
     
+    /**
+     Collect data once user selects a location using Google Places UI
+     */
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         // Get the latitude and longitude of the selected place
         let latitude = place.coordinate.latitude
@@ -92,6 +96,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         dismiss(animated: true, completion: nil)
     }
     
+    /**
+     Google places UI functions
+     */
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         print("Autocomplete error: \(error.localizedDescription)")
     }
@@ -99,15 +106,22 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
     }
-    
+    /**
+     Bring up Google Places controller when map view is tapped
+     */
     @IBAction func mapViewDidTapped(_ sender: UITapGestureRecognizer) {
         present(autocompleteController, animated: true, completion: nil)
     }
-    
+    /**
+     Bring up Google Places controller when location text field is tapped
+     */
     @IBAction func editingBeganLocationTextField(_ sender: UITextField) {
         present(autocompleteController, animated: true, completion: nil)
     }
     
+    /**
+     Create a Log object for the LogManager when the saved button is tapped to send it to Firestore
+     */
     @IBAction func saveDidTapped(_ sender: UIButton) {
         let newLogRef = Firestore.firestore().collection("logs").document()
         let logDictionary: [Log.FieldKeys: Any] = [
@@ -138,11 +152,13 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             return
         }
         
+        // Add the log file to Firebase through the manager
         LogManager.shared.addLog(log: log)
         presentingViewController?.viewWillAppear(true)
         self.dismiss(animated: true)
     }
     
+    // Use current location for location text field
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {return}
         self.manager.stopUpdatingLocation()
@@ -150,19 +166,29 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         locationTextField.text = location.description
     }
     
+    // Get current location
     @objc func getCurrentLocation() {
         manager.requestLocation()
     }
     
+    /**
+     Clear the text fields and dismiss the page if the cancel button is tapped
+     */
     @IBAction func cancelButtonDidTapped(_ sender: Any) {
         clearTextFields()
         self.dismiss(animated: true)
     }
     
+    /**
+     Check if the save button should be enabled when an input changes
+     */
     internal func textFieldDidChangeSelection(_ textField: UITextField) {
         enableOrDisableButton()
     }
     
+    /**
+     Update location variable with a geocode object when location text field is updated
+     */
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField != locationTextField { return }
         guard let address = textField.text else {
@@ -180,6 +206,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         }
     }
 
+    /**
+     Enables save button if required fields are filled out
+     */
     func enableOrDisableButton() {
         // Enable or disable the "Save" button base on the inputs
         saveButton.isEnabled = requiredFieldsNotEmpty()
@@ -239,6 +268,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         notes.text = ""
     }
     
+    /**
+     Updates the map when the user selects a location from Google Places
+     */
     func updateMap(latitude: Double, longitude: Double) {
         // Create a location for the map view to center on
         let initialLocation = CLLocation(latitude: latitude, longitude: longitude)

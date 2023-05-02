@@ -17,7 +17,7 @@ class ViewLogController : BaseViewController {
     }
     
     @IBSegueAction func embedLogView(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: TestView(selectedLog: receivedLog))
+        return UIHostingController(coder: coder, rootView: LogView(selectedLog: receivedLog))
     }
     
 }

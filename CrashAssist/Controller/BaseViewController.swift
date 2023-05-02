@@ -26,12 +26,14 @@ class BaseViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
+    // The code below helps adjust view controllers in case the keyboard is covering some of its content
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            view.endEditing(true)
+        view.endEditing(true)
     }
     
     deinit {
-            NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {

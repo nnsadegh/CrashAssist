@@ -22,6 +22,7 @@ class UserManager {
         case notLoggedIn
     }
     
+    // Enums for User Fields
     enum UserField: String {
         case name
         case email
@@ -30,6 +31,9 @@ class UserManager {
         case vin
     }
     
+    /**
+     Initializer for singleton class of UserManager
+     */
     private init() {
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else {
@@ -58,11 +62,16 @@ class UserManager {
         }
     }
     
-    
+    /**
+     Gets the current user as a User object
+     */
     func getCurrentUser() -> User? {
         return currentUser
     }
     
+    /**
+     Updates a specific field of the user object locally and in Firestore given the UserField enum and its value
+     */
     func updateField(_ field: UserField, value: Any, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else {
             completion(UserError.notLoggedIn)
@@ -89,6 +98,9 @@ class UserManager {
         }
     }
     
+    /**
+     Updates multiple pieces of data in the user object and in Firestore given a data dictionary
+     */
     func updateData(_ data: [UserField: Any], completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else {
             completion(UserError.notLoggedIn)
@@ -112,21 +124,9 @@ class UserManager {
         }
     }
     
-    func userLoggedIn(onComplete: @escaping (Bool) -> Void) {
-        let isLoggedIn = Auth.auth().currentUser != nil
-        onComplete(isLoggedIn)
-    }
-    
-    func signOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch let error as NSError {
-            print("Error signing out: %@", error)
-        }
-        currentUser = nil
-        currentUserRef = nil
-    }
-    
+    /**
+     Update the user with a User object given as a parameter, if the user doesnt exist, create a document for it
+     */
     func updateUser(user: User, completion: @escaping (Error?) -> Void) {
         currentUser = user
         do {
@@ -146,6 +146,30 @@ class UserManager {
         }
     }
     
+    /**
+     Check if the user is logged in
+     */
+    func userLoggedIn(onComplete: @escaping (Bool) -> Void) {
+        let isLoggedIn = Auth.auth().currentUser != nil
+        onComplete(isLoggedIn)
+    }
+    
+    /**
+     Sign the user out and clear data accordingly
+     */
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error as NSError {
+            print("Error signing out: %@", error)
+        }
+        currentUser = nil
+        currentUserRef = nil
+    }
+    
+    /**
+     Delete user locally and from Firebase and clear data accordingly
+     */
     func deleteUser(completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else {
             completion(UserError.notLoggedIn)

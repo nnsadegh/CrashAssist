@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ A cell with a lable and a text field for input
+ */
 class FieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     static let identifier = "FieldTableViewCell"

@@ -19,6 +19,9 @@ class LogManager {
     // Private initializer to prevent instantiation outside the class
     private init() {}
     
+    /**
+     Return the number of logs the user has
+     */
     func numberOfLogs() -> Int {
         return logs.count
     }
@@ -52,7 +55,7 @@ class LogManager {
         }
     }
     
-    // Grabs user logs from Firebase
+    // Grabs all user's logs from Firebase
     func updateLogsFromFirestore(completion: @escaping () -> Void) {
         let db = Firestore.firestore()
         guard let userId = UserManager.shared.getCurrentUser()?.uid else {
@@ -101,6 +104,9 @@ class LogManager {
         }
     }
     
+    /**
+     Rearrange logs in table view
+     */
     func rearrangeLogs(from: Int, to: Int) {
         if !outOfBounds(at: from) && !outOfBounds(at: to) {
             let log = logs.remove(at: from)
@@ -108,6 +114,9 @@ class LogManager {
         }
     }
     
+    /**
+     Delete all of the user's logs
+     */
     func deleteAllLogs(completion: @escaping () -> Void) {
         // Remove logs from Firestore
         let db = Firestore.firestore()

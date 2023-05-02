@@ -19,6 +19,9 @@ class MoreInfoController : BaseViewController {
         
     }
     
+    /**
+     Update user with new data inputted and transition to home page
+     */
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         let data: [UserManager.UserField: Any] = [
             UserManager.UserField.birthdate: birthdatePicker.date,

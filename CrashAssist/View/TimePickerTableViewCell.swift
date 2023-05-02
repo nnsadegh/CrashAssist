@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ A cell with a label and a time picker for input
+ */
 class TimePickerTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

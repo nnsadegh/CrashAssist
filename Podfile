@@ -22,7 +22,7 @@ pod 'FBSDKLoginKit'
 pod 'SDWebImage'
 pod 'GooglePlaces'
 pod 'GoogleMaps'
-pod 'SwiftyFORM'
+pod 'lottie-ios'
 
   target 'CrashAssistTests' do
     inherit! :search_paths

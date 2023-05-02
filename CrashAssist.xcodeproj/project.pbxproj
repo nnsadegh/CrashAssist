@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		041674C655B411BBEFC96B6C /* Pods_CrashAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C76CA1772ADE2ABB2C0853 /* Pods_CrashAssist.framework */; };
 		5801F66629FF73EB00DFDD71 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F66529FF73EB00DFDD71 /* TestView.swift */; };
+		5801F6682A00815F00DFDD71 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F6672A00815F00DFDD71 /* WeatherView.swift */; };
+		5801F66D2A009CCE00DFDD71 /* 90422-security-car-black.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */; };
+		5801F66F2A00A35000DFDD71 /* loading-blue-home.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F66E2A00A35000DFDD71 /* loading-blue-home.json */; };
+		5801F6712A00AEE100DFDD71 /* startup-carloadinganimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F6702A00AEE000DFDD71 /* startup-carloadinganimation.json */; };
+		5801F6732A00AF1500DFDD71 /* LoadingScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801F6722A00AF1500DFDD71 /* LoadingScreenController.swift */; };
+		5801F6752A00B1A800DFDD71 /* car-crash.json in Resources */ = {isa = PBXBuildFile; fileRef = 5801F6742A00B1A800DFDD71 /* car-crash.json */; };
 		580F109629E0C296008C401B /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109529E0C296008C401B /* HomePageController.swift */; };
 		580F109829E0C2A9008C401B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109729E0C2A9008C401B /* SettingsController.swift */; };
 		580F109A29E0C2B6008C401B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F109929E0C2B6008C401B /* ProfileController.swift */; };
@@ -69,6 +75,12 @@
 		4D2E84AA35701DF92820091D /* Pods-CrashAssistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssistTests.debug.xcconfig"; path = "Target Support Files/Pods-CrashAssistTests/Pods-CrashAssistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		501F922DCB48300CB79148CE /* Pods-CrashAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashAssist.release.xcconfig"; path = "Target Support Files/Pods-CrashAssist/Pods-CrashAssist.release.xcconfig"; sourceTree = "<group>"; };
 		5801F66529FF73EB00DFDD71 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5801F6672A00815F00DFDD71 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "90422-security-car-black.json"; sourceTree = "<group>"; };
+		5801F66E2A00A35000DFDD71 /* loading-blue-home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-blue-home.json"; sourceTree = "<group>"; };
+		5801F6702A00AEE000DFDD71 /* startup-carloadinganimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "startup-carloadinganimation.json"; sourceTree = "<group>"; };
+		5801F6722A00AF1500DFDD71 /* LoadingScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenController.swift; sourceTree = "<group>"; };
+		5801F6742A00B1A800DFDD71 /* car-crash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "car-crash.json"; sourceTree = "<group>"; };
 		580F109529E0C296008C401B /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		580F109729E0C2A9008C401B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		580F109929E0C2B6008C401B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -148,6 +160,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5801F66B2A009CBD00DFDD71 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */,
+				5801F66E2A00A35000DFDD71 /* loading-blue-home.json */,
+				5801F6702A00AEE000DFDD71 /* startup-carloadinganimation.json */,
+				5801F6742A00B1A800DFDD71 /* car-crash.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		580F10A429E24025008C401B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +204,7 @@
 		5843A5A329D5146A008D797D /* CrashAssist */ = {
 			isa = PBXGroup;
 			children = (
+				5801F66B2A009CBD00DFDD71 /* Animations */,
 				580F10A429E24025008C401B /* Utilities */,
 				580F109D29E0DACF008C401B /* CrashAssist.entitlements */,
 				5838DEC829DFB31600240011 /* GoogleService-Info.plist */,
@@ -220,13 +244,10 @@
 				580F109929E0C2B6008C401B /* ProfileController.swift */,
 				580F109B29E0C4CB008C401B /* NewLogController.swift */,
 				581B1DFF29FA11F9008160DA /* NewLogControllerV2.swift */,
-				581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */,
-				581B1E1229FF1C0E008160DA /* TextViewTableViewCell.swift */,
-				581B1E1629FF1C41008160DA /* TimePickerTableViewCell.swift */,
-				581B1E1B29FF1C65008160DA /* LocationTableViewCell.swift */,
-				581B1E1F29FF1DD9008160DA /* HeaderTableViewCell.swift */,
 				581B1E2329FF63E8008160DA /* ViewLogController.swift */,
 				5801F66529FF73EB00DFDD71 /* TestView.swift */,
+				5801F6672A00815F00DFDD71 /* WeatherView.swift */,
+				5801F6722A00AF1500DFDD71 /* LoadingScreenController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +273,11 @@
 				581B1E1729FF1C41008160DA /* TimePickerTableViewCell.xib */,
 				581B1E1C29FF1C65008160DA /* LocationTableViewCell.xib */,
 				581B1E2029FF1DD9008160DA /* HeaderTableViewCell.xib */,
+				581B1E0E29FF1B67008160DA /* FieldTableViewCell.swift */,
+				581B1E1229FF1C0E008160DA /* TextViewTableViewCell.swift */,
+				581B1E1629FF1C41008160DA /* TimePickerTableViewCell.swift */,
+				581B1E1B29FF1C65008160DA /* LocationTableViewCell.swift */,
+				581B1E1F29FF1DD9008160DA /* HeaderTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,15 +433,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5801F6712A00AEE100DFDD71 /* startup-carloadinganimation.json in Resources */,
 				5843A5B129D5146B008D797D /* LaunchScreen.storyboard in Resources */,
 				581B1E2229FF1DD9008160DA /* HeaderTableViewCell.xib in Resources */,
 				581B1E1529FF1C0E008160DA /* TextViewTableViewCell.xib in Resources */,
 				581B1E1129FF1B67008160DA /* FieldTableViewCell.xib in Resources */,
+				5801F66D2A009CCE00DFDD71 /* 90422-security-car-black.json in Resources */,
 				5838DEC929DFB31600240011 /* GoogleService-Info.plist in Resources */,
+				5801F6752A00B1A800DFDD71 /* car-crash.json in Resources */,
 				5843A5AE29D5146B008D797D /* Assets.xcassets in Resources */,
 				5843A5AC29D5146A008D797D /* Main.storyboard in Resources */,
 				581B1E1E29FF1C65008160DA /* LocationTableViewCell.xib in Resources */,
 				581B1E1929FF1C41008160DA /* TimePickerTableViewCell.xib in Resources */,
+				5801F66F2A00A35000DFDD71 /* loading-blue-home.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,8 +617,10 @@
 				581B1E1D29FF1C65008160DA /* LocationTableViewCell.swift in Sources */,
 				580F109F29E0E8A8008C401B /* Log.swift in Sources */,
 				5843A5A929D5146A008D797D /* BaseViewController.swift in Sources */,
+				5801F6732A00AF1500DFDD71 /* LoadingScreenController.swift in Sources */,
 				581B1E2129FF1DD9008160DA /* HeaderTableViewCell.swift in Sources */,
 				581B1E1029FF1B67008160DA /* FieldTableViewCell.swift in Sources */,
+				5801F6682A00815F00DFDD71 /* WeatherView.swift in Sources */,
 				580F109629E0C296008C401B /* HomePageController.swift in Sources */,
 				5843A5A529D5146A008D797D /* AppDelegate.swift in Sources */,
 				5838DECB29DFB4B300240011 /* LandingController.swift in Sources */,

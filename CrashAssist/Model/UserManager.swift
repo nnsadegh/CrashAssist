@@ -30,7 +30,7 @@ class UserManager {
         case vin
     }
     
-    public init() {
+    private init() {
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else {
                 self.currentUser = nil
@@ -145,4 +145,35 @@ class UserManager {
             completion(encodingError)
         }
     }
+    
+    func deleteUser(completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(UserError.notLoggedIn)
+            return
+        }
+        
+        // Delete the user document in Firestore
+        userCollectionRef.document(currentUser.uid).delete { error in
+            if let error = error {
+                print("Error deleting user document: \(error)")
+                completion(error)
+                return
+            }
+            
+            // Delete the user locally
+            do {
+                try Auth.auth().signOut()
+            } catch let error as NSError {
+                print("Error signing out: %@", error)
+                completion(error)
+                return
+            }
+            
+            self.currentUser = nil
+            self.currentUserRef = nil
+            
+            completion(nil)
+        }
+    }
+
 }

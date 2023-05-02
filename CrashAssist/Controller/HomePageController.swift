@@ -6,24 +6,60 @@
 //
 
 import UIKit
+import Lottie
 
 class HomePageController: BaseViewController, UITableViewDataSource {
     
     fileprivate var selectedLog : Log?
     
+    @IBOutlet weak var loadingAnimationView: LottieAnimationView!
+    @IBOutlet weak var emptyLogsAnimationView: LottieAnimationView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var cellTap: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
         cellTap.addTarget(self, action: #selector(handleCellTap(_:)))
+        
+        // Setup animation views
+        emptyLogsAnimationView.contentMode = .scaleAspectFit
+        emptyLogsAnimationView.loopMode = .playOnce
+        emptyLogsAnimationView.animationSpeed = 0.5
+        loadingAnimationView.contentMode = .scaleAspectFit
+        loadingAnimationView.loopMode = .loop
+        loadingAnimationView.animationSpeed = 0.5
+        
+        viewWillAppear(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.isHidden = true
+        emptyLogsAnimationView.isHidden = true
+        loadingAnimationView.isHidden = false
+        
+        // Play Loading Animation
+        loadingAnimationView.play()
+        loadingAnimationView.isHidden = false
+
+        // Get new logs
         LogManager.shared.updateLogsFromFirestore() {
-            self.tableView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.loadingAnimationView.stop()
+                self.loadingAnimationView.isHidden = true
+                // Display appropriate elements
+                if LogManager.shared.numberOfLogs() == 0 {
+                    // Show Empty Logs Animation and Label
+                    self.emptyLogsAnimationView.isHidden = false
+                    self.emptyLogsAnimationView.play()
+                } else {
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                }
+            }
         }
     }
     

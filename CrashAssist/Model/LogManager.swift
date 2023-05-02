@@ -108,6 +108,36 @@ class LogManager {
         }
     }
     
+    func deleteAllLogs(completion: @escaping () -> Void) {
+        // Remove logs from Firestore
+        let db = Firestore.firestore()
+        let logsCollectionRef = db.collection("logs")
+        let userId = UserManager.shared.getCurrentUser()?.uid ?? ""
+        logsCollectionRef.whereField(Log.FieldKeys.userID.rawValue, isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching logs to delete: \(error?.localizedDescription ?? "unknown error")")
+                completion()
+                return
+            }
+
+            let batch = db.batch()
+
+            for document in snapshot.documents {
+                batch.deleteDocument(logsCollectionRef.document(document.documentID))
+            }
+
+            batch.commit { error in
+                if let error = error {
+                    print("Error deleting logs from Firestore: \(error.localizedDescription)")
+                } else {
+                    print("Logs successfully deleted from Firestore")
+                    self.logs.removeAll()
+                }
+                completion()
+            }
+        }
+    }
+    
     // Checks for out of bounds array calls
     private func outOfBounds(at index: Int) -> Bool {
         if index >= 0, index <= logs.count {

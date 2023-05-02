@@ -7,6 +7,7 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var emailText: UILabel!
     @IBOutlet weak var birthdateText: UILabel!
+    @IBOutlet weak var accidentCountLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -38,6 +39,8 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
         } else {
             birthdateText.text = "Enter a birthday!"
         }
+        
+        accidentCountLabel.text = "Number of Accidents: \(LogManager.shared.numberOfLogs())"
         
         // Download and display the profile image using SDWebImage
         if let url = user.profileImageURL {

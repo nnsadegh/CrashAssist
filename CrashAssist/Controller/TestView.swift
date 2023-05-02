@@ -21,8 +21,6 @@ struct TestView: View {
                 Text("Other Driver Details").font(.title)
                 
                 Group {
-                    KeyValueRow(key: "Log ID", value: selectedLog.logID)
-                    KeyValueRow(key: "User ID", value: selectedLog.userID)
                     KeyValueRow(key: "Other Driver Name", value: selectedLog.otherDriverName ?? fieldNA)
                     KeyValueRow(key: "Other Driver Phone", value: selectedLog.otherDriverPhone ?? fieldNA)
                     KeyValueRow(key: "Other Driver Address", value: selectedLog.otherDriverAddress ?? fieldNA)
@@ -32,14 +30,15 @@ struct TestView: View {
                     KeyValueRow(key: "Other Vehicle Model", value: selectedLog.otherVehicleModel ?? fieldNA)
                     KeyValueRow(key: "Other Vehicle License Plate", value: selectedLog.otherVehicleLicensePlate ?? fieldNA)
                 }
-                
                 Text("Your Details").font(.title)
-                Text("Accident Location").font(.body)
+                Text("Accident Location").font(.title3.bold())
                 if let location = getLocationFromLog(selectedLog) {
                     MapView(centerCoordinate: location.coordinate)
                         .frame(height: 300)
                         .cornerRadius(10)
                 }
+                Text(selectedLog.locationString)
+                Divider()
 
                 Group {
                     KeyValueRow(key: "Time", value: formatDate(selectedLog.time))
@@ -75,6 +74,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
+        mapView.isScrollEnabled = false
         return mapView
     }
 
@@ -114,7 +114,6 @@ struct KeyValueRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Divider()
             Text(key)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .minimumScaleFactor(0.5)
@@ -123,6 +122,7 @@ struct KeyValueRow: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .minimumScaleFactor(0.5)
                 .lineLimit(nil)
+            Divider()
         }
     }
 }

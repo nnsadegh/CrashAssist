@@ -52,8 +52,5 @@ class NewLogControllerV2: BaseViewController, UITableViewDelegate, UITableViewDa
             cell.configure(with: "")
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier, for: indexPath) as! HeaderTableViewCell
-        cell.configure(with: "")
-        return cell
     }
 }

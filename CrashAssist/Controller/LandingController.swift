@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 import FirebaseFirestore
 import FirebaseAuthUI
 import FirebaseEmailAuthUI
@@ -14,28 +15,21 @@ import FirebaseGoogleAuthUI
 
 class LandingController: BaseViewController {
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var animationView: LottieAnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        spinner.startAnimating()
-        UserManager.shared.userLoggedIn() { isLoggedIn in
-            self.spinner.stopAnimating()
-            if isLoggedIn {
-                self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
-            } else {
-                print("User is not logged in")
-            }
-        }
-
-//        if UserManager.shared.userLoggedIn() {
-//            self.performSegue(withIdentifier: "goHomeFromLogin", sender: self)
-//        }
+        animationView.play()
+        
     }
     
     
@@ -59,6 +53,7 @@ class LandingController: BaseViewController {
         
         // Get the auth view controller and present it
         let authViewController = authUI!.authViewController()
+        animationView.stop()
         present(authViewController, animated: true, completion: nil)
     }
 }

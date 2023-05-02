@@ -85,6 +85,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             print("Latitude: \(location.latitude), Longitude: \(location.longitude)")
         }
         
+        // Check if all fields have been satisfied
+        enableOrDisableButton()
+        
         // Dismiss the autocomplete view controller
         dismiss(animated: true, completion: nil)
     }
@@ -136,6 +139,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         }
         
         LogManager.shared.addLog(log: log)
+        presentingViewController?.viewWillAppear(true)
         self.dismiss(animated: true)
     }
     
@@ -209,7 +213,9 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             driverPolicyNumber.text?.isEmpty ?? true ||
             driverVehicleMake.text?.isEmpty ?? true ||
             driverVehicleModel.text?.isEmpty ?? true ||
-            driverLicensePlate.text?.isEmpty ?? true {
+            driverLicensePlate.text?.isEmpty ?? true ||
+            locationTextField.text?.isEmpty ?? true
+        {
             return false
         }
         return true

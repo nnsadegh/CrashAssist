@@ -6,6 +6,9 @@
 //
 import UIKit
 
+/**
+ A cell with a label in larger text to represent sections
+ */
 class HeaderTableViewCell: UITableViewCell {
     
     static let identifier = "HeaderTableViewCell"

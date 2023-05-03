@@ -57,6 +57,8 @@ class ProfileController: BaseViewController, UIImagePickerControllerDelegate, UI
                     }
                 }
             }
+        } else {
+            spinner.stopAnimating()
         }
     }
     

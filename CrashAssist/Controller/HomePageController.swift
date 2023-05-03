@@ -115,7 +115,7 @@ class HomePageController: BaseViewController, UITableViewDataSource {
      Handle log taps, whether swiping or single tap (weird simulator bug)
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedLog = LogManager.shared.log(at: indexPath.row)
+        LogManager.shared.setSelectedLog(at: indexPath.row)
         performSegue(withIdentifier: "ViewLogSegue", sender: self)
     }
 
@@ -124,7 +124,7 @@ class HomePageController: BaseViewController, UITableViewDataSource {
             let tapLocation = sender.location(in: self.tableView)
             if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
                 if let cell = sender.view as? UITableViewCell {
-                    selectedLog = LogManager.shared.log(at: tapIndexPath.row)
+                    LogManager.shared.setSelectedLog(at: tapIndexPath.row)
                     performSegue(withIdentifier: "ViewLogSegue", sender: cell)
                 }
             }

@@ -12,7 +12,7 @@ import CoreLocation
 import MapKit
 
 struct LogView: View {
-    var selectedLog: Log!
+    var selectedLog: Log! = LogManager.shared.getSelectedLog()
     var fieldNA = "Field N/A"
     
     var body: some View {
@@ -20,7 +20,6 @@ struct LogView: View {
             VStack(alignment: .leading, spacing: 16) {
                 // Display other driver details
                 Text("Other Driver Details").font(.title)
-                
                 Group {
                     KeyValueRow(key: "Other Driver Name", value: selectedLog.otherDriverName ?? fieldNA)
                     KeyValueRow(key: "Other Driver Phone", value: selectedLog.otherDriverPhone ?? fieldNA)

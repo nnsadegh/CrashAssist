@@ -158,7 +158,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5801F66B2A009CBD00DFDD71 /* Animations */ = {
+		5801F66B2A009CBD00DFDD71 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
 				5801F66C2A009CCE00DFDD71 /* 90422-security-car-black.json */,
@@ -166,7 +166,7 @@
 				5801F6702A00AEE000DFDD71 /* startup-carloadinganimation.json */,
 				5801F6742A00B1A800DFDD71 /* car-crash.json */,
 			);
-			path = Animations;
+			path = "Lottie Animations";
 			sourceTree = "<group>";
 		};
 		5801F6762A00B51F00DFDD71 /* SwiftUI */ = {
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				5801F6762A00B51F00DFDD71 /* SwiftUI */,
-				5801F66B2A009CBD00DFDD71 /* Animations */,
+				5801F66B2A009CBD00DFDD71 /* Lottie Animations */,
 				580F109D29E0DACF008C401B /* CrashAssist.entitlements */,
 				5838DEC829DFB31600240011 /* GoogleService-Info.plist */,
 				5843A5D529D5147C008D797D /* Model */,

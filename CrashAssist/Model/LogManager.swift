@@ -16,6 +16,9 @@ class LogManager {
     // Array of logs
     private var logs: [Log] = []
     
+    // Current Selected Log Index
+    private var currentLogIndex: Int?
+    
     // Private initializer to prevent instantiation outside the class
     private init() {}
     
@@ -24,6 +27,20 @@ class LogManager {
      */
     func numberOfLogs() -> Int {
         return logs.count
+    }
+    
+    /**
+     When the user selects a log on the home page its index will be stored in the log manager with this function
+     */
+    func setSelectedLog(at index: Int) {
+        currentLogIndex = index
+    }
+    
+    /**
+     Returns the log object for the selected log from the home page.
+     */
+    func getSelectedLog() -> Log? {
+        return logs[currentLogIndex!]
     }
     
     // Returns log at index

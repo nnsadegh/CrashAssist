@@ -125,13 +125,13 @@ class UserManager {
     }
     
     /**
-     Update the user with a User object given as a parameter, if the user doesnt exist, create a document for it
+     Update the user with a User object given as a parameter, if the user doesn't exist, create a document for it
      */
     func updateUser(user: User, completion: @escaping (Error?) -> Void) {
         currentUser = user
         do {
             let userDocumentData = try Firestore.Encoder().encode(user)
-            userCollectionRef.document(user.uid).updateData(userDocumentData) { error in
+            userCollectionRef.document(user.uid).setData(userDocumentData) { error in
                 if let error = error {
                     print("Error updating user: \(error)")
                     completion(error)
@@ -184,19 +184,16 @@ class UserManager {
                 return
             }
             
-            // Delete the user locally
-            do {
-                try Auth.auth().signOut()
-            } catch let error as NSError {
-                print("Error signing out: %@", error)
-                completion(error)
-                return
+            // Delete user in Firestore Auth
+            Auth.auth().currentUser?.delete() { error in
+                if let error {completion(error)}
+                // Delete the user locally
+                self.currentUser = nil
+                self.currentUserRef = nil
+                
+                completion(nil)
+                
             }
-            
-            self.currentUser = nil
-            self.currentUserRef = nil
-            
-            completion(nil)
         }
     }
 

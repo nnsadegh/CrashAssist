@@ -9,11 +9,6 @@ CrashAssist is an iOS application developed to assist individuals in the event o
 - **Emergency Services Contact**: Quick access to call emergency services.
 - **Insurance Information Storage**: Keep your insurance details readily available.
 
-## Screenshots
-![Screenshot 1](url-to-screenshot1)
-![Screenshot 2](url-to-screenshot2)
-*Add more screenshots as needed. Replace `url-to-screenshot` with the actual URL of the images.*
-
 ## Technologies Used
 - Swift
 - Xcode
@@ -27,16 +22,7 @@ To set up CrashAssist on your local machine, follow these steps:
 4. Run the project in the simulator or on a physical device.
 
 ## Usage
-*Provide instructions on how to use the app or how to run the project after installation.*
-
-## Contribution
-Contributions to CrashAssist are welcome! Please read our contribution guidelines for more information.
-
-## License
-*Specify the license under which your project is released, if applicable.*
+Run it in Xcode on any iPhone simulator.
 
 ## Contact/Support
-For support or queries, please contact me at [your-email@example.com].
-
-## Acknowledgments
-*Optional: Acknowledge any contributors, inspirations, or other references.*
+For support or queries, please contact me at [nnsadegh@usc.edu].

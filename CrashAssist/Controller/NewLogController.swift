@@ -135,7 +135,7 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
             .otherVehicleMake: driverVehicleMake.text ?? "",
             .otherVehicleModel: driverVehicleModel.text ?? "",
             .otherVehicleLicensePlate: driverLicensePlate.text ?? "",
-            .location: selectedLocation != nil ? GeoPoint(latitude: selectedLocation!.latitude, longitude: selectedLocation!.longitude) : "",
+            .location: self.selectedLocation != nil ? GeoPoint(latitude: self.selectedLocation?.latitude ?? 34.0, longitude: self.selectedLocation?.longitude ?? -118.0) : GeoPoint(latitude: 34.0, longitude: -118.0),
             .locationString: address ?? "Location not Entered",
             .time: timePicker.date,
             .yourVehicleMedia: [URL](),
@@ -154,8 +154,10 @@ class NewLogController: BaseViewController, UIScrollViewDelegate, UITextViewDele
         
         // Add the log file to Firebase through the manager
         LogManager.shared.addLog(log: log)
-        presentingViewController?.viewWillAppear(true)
-        self.dismiss(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.presentingViewController?.viewWillAppear(true)
+            self.dismiss(animated: true)
+        }
     }
     
     // Use current location for location text field
